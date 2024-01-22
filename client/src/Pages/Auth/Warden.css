@@ -1,0 +1,108 @@
+.warden{
+    height: 100vh;
+    width: 100%;
+}
+
+.bimage{
+    height: 100%;
+    background-image: url('../../Assets/juet.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px) brightness(25%);
+}
+
+.wlogin{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.wlogin h1{
+    font-size: 60px;
+}
+
+.wlogin h2{
+    font-size: 30px;
+    font-style:oblique;
+    font-weight: normal;
+}
+
+.wlogin-box{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 40%;
+    text-align: center;
+    color: aliceblue;
+    border: solid #fff;
+    border-radius: 15px;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4);
+    box-shadow: rgba(237, 214, 214, 0.35) 0px 5px 20px;
+
+}
+
+.wlogin-box p{
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.wlogin-fld{
+    margin: 10px;
+    width: 70%;
+    height: 30px;
+    background: none;
+    border: none;
+    border-bottom: solid #fff;
+    outline: none;
+}
+
+.wlogin-fld::placeholder{
+    font-size: 20px;
+    padding: 5px;
+    color: aliceblue;
+    transition: 0.3s;
+}
+
+.wlogin-fld:focus::placeholder{
+    color: transparent;
+    transition: 0.3s;
+}
+
+.wlogin-fld::-ms-reveal{
+    filter: invert(100%);
+}
+
+.wlogin-fld, select, textarea{
+    color: antiquewhite;
+    font-size: 20px;
+    padding-left: 8px;
+}
+
+.wlogin-btn{
+    background: none;
+    border: solid #fff;
+    width: 70%;
+    border-radius: 20px;
+    height: 35px;
+    margin:13px;
+    color: antiquewhite;
+    font-size: 20px;
+    transition: 0.3s;
+    margin-bottom: 50px;
+}
+
+.wlogin-btn:hover{
+    cursor: pointer;
+    background-color: antiquewhite;
+    color: black;
+    transition: 0.3s;
+}
