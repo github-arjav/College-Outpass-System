@@ -1,8 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import './Warden.css'
 
 const Warden = () => {
+
+    const navigate = useNavigate()
+
+    const handleWardenLogin = (e) => {
+        e.preventDefault()
+        navigate('/WardenHomePage')
+    }
+
     return(
         <div className="warden">
             <div className="bimage"></div>
@@ -12,7 +21,7 @@ const Warden = () => {
             </div>
             <div className="wlogin-box">
                 <p>Login for Employees</p>
-                <form className="wlogin-form">
+                <form className="wlogin-form" onSubmit={handleWardenLogin}>
                     <input type="text" id="empid" name="empid" placeholder="Employee Id" className="wlogin-fld" required/><br />
                     <input type="password" id="emppass" name="emppass" placeholder="Password" className="wlogin-fld" required/><br />
                     <input type="submit" value="login" name="login" className="wlogin-btn" />

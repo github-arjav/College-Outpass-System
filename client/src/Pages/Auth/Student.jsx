@@ -9,6 +9,7 @@ const Student = () => {
 
     const handleStudentlogin = (e) => {
         e.preventDefault()
+        navigate('/StudentHomePage')
     }
 
     return(

@@ -1,0 +1,70 @@
+.s-home{
+    height: 100vh;
+    width: 100%;
+}
+
+.bimage{
+    height: 100%;
+    background-image: url('../../Assets/juet.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(4px) brightness(25%);
+}
+
+.s-home-info{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.s-home-info h1{
+    font-size: 60px;
+}
+
+.s-home-info h2{
+    font-size: 30px;
+    font-style:oblique;
+    font-weight: normal;
+}
+
+.s-home-container{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 60%;
+    text-align: center;
+    color: aliceblue;
+}
+
+.sfunction{
+    margin: 40px 0;
+}
+
+.sfunction button{
+    border: solid #fff;
+    border-radius: 15px;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4);
+    box-shadow: rgba(237, 214, 214, 0.35) 0px 5px 20px;
+    width: 100%;
+    color: aliceblue;
+    padding: 30px 60px;
+    font-size: 30px;
+    transition: 0.3s ease;
+}
+
+.sfunction button:hover{
+    cursor: pointer;
+    color: black;
+    background-color: aliceblue;
+    border: solid aliceblue;
+    transition: 0.3s ease;
+}
