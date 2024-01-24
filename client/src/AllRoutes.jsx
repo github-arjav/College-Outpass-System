@@ -6,6 +6,7 @@ import Warden from "./Pages/Auth/Warden";
 import Student from "./Pages/Auth/Student";
 import StudentHomePage from "./Pages/HomePage/StudentHomePage";
 import WardenHomePage from "./Pages/HomePage/WardenHomePage";
+import Form from "./Pages/OutpassForm/Form"
 
 const AllRoutes = () => {
     return(
@@ -15,6 +16,7 @@ const AllRoutes = () => {
             <Route path="/Student" element={<Student/>}/>
             <Route path="/StudentHomePage" element={<StudentHomePage />}/>
             <Route path="/WardenHomePage" element={<WardenHomePage />}/>
+            <Route path="/Form" element={<Form/>}/>
         </Routes>
     )
 }

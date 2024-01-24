@@ -7,6 +7,10 @@ const StudentHomePage = () =>{
 
     const navigate = useNavigate()
 
+    const handleApply = () => {
+        navigate('/Form')
+    }
+
     return(
         <div className="s-home">
             <div className="bimage"></div>
@@ -16,7 +20,7 @@ const StudentHomePage = () =>{
             </div>
             <div className="s-home-container">
                 <div className="sfunction">
-                    <button>Apply for Outpass</button>
+                    <button onClick={handleApply}>Apply for Outpass</button>
                 </div>
                 <div className="sfunction">
                     <button>View pending Outpasses</button>
