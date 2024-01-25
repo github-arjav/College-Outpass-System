@@ -1,0 +1,89 @@
+.pass-container{
+    position: absolute;
+    border: solid;
+    width: 60%;
+    left: 20%;
+    border: solid #fff;
+    border-radius: 15px;
+    background-color: rgb(0,0,0); 
+    /* background-color: rgba(0,0,0, 0.4); */
+}
+
+.pass-container form{
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 20px;
+}
+
+.pass-container form p{
+    grid-column: span 4;
+    grid-row: 1;
+    font-size: 25px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    color: aliceblue;
+}
+
+.sa-pass{
+    background: none;
+    border: none;
+    width: 70%;
+    margin-left: 7px;
+    font-size: 20px;
+    outline: none;
+    color: antiquewhite;
+    padding-left: 7px;
+}
+
+.pass-container form label{
+    font-size: 20px;
+    color: aliceblue;
+}
+
+.sa-enroll{
+    width: 55%;
+}
+
+.sa-date::-webkit-calendar-picker-indicator{
+    display: none;
+}
+
+.item1{
+    grid-column: 1/span 2;
+    grid-row: 2;
+}
+
+.item2{
+    grid-column: 3/span 2;
+    grid-row: 2;
+}
+
+.item5{
+    grid-column: 1/span 2;
+    grid-row: 3;
+}
+
+.item6{
+    grid-column: 3/span 4;
+    grid-row: 3;
+}
+
+.item3{
+    grid-column: 1;
+    grid-row: 4;
+    height: 50px;
+}
+
+.item4{
+    grid-column: 3;
+    grid-row: 4;
+    height: 50px;
+}
+
+.item7{
+    grid-column: 4;
+    grid-row: 4;
+    height: 50px;
+}
