@@ -7,6 +7,7 @@ import Student from "./Pages/Auth/Student";
 import StudentHomePage from "./Pages/HomePage/StudentHomePage";
 import WardenHomePage from "./Pages/HomePage/WardenHomePage";
 import Form from "./Pages/OutpassForm/Form"
+import StudentAppliedOutpass from "./Components/Outpasses/StudentAppliedOutpass";
 
 const AllRoutes = () => {
     return(
@@ -17,6 +18,7 @@ const AllRoutes = () => {
             <Route path="/StudentHomePage" element={<StudentHomePage />}/>
             <Route path="/WardenHomePage" element={<WardenHomePage />}/>
             <Route path="/Form" element={<Form/>}/>
+            <Route path="/StudentAppliedOutpass" element={<StudentAppliedOutpass/>}/>
         </Routes>
     )
 }
