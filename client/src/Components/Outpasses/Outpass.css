@@ -1,12 +1,11 @@
 .pass-container{
-    position: absolute;
     border: solid;
-    width: 60%;
+    /* width: 60%; */
     left: 20%;
     border: solid #fff;
     border-radius: 15px;
     background-color: rgb(0,0,0); 
-    /* background-color: rgba(0,0,0, 0.4); */
+    background-color: rgba(0,0,0, 0.7);
 }
 
 .pass-container form{
