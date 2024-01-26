@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./StudentAppliedOutpass.css"
+import "./Outpass.css"
 import pending from "../../Assets/pending.png"
 
 const StudentAppliedOutpass = () => {
@@ -26,7 +26,7 @@ const StudentAppliedOutpass = () => {
                 <label htmlFor="purpose"className="item6">Purpose:
                     <input type="text" name="purpose" value="Family Function" className="sa-pass"/>
                 </label>
-                <input type="image" src={pending} className="item7"/>
+                <input type="image" alt="pending" src={pending} className="item7"/>
             </form>
         </div>
     )

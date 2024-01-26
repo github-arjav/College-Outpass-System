@@ -8,6 +8,10 @@ import StudentHomePage from "./Pages/HomePage/StudentHomePage";
 import WardenHomePage from "./Pages/HomePage/WardenHomePage";
 import Form from "./Pages/OutpassForm/Form"
 import StudentAppliedOutpass from "./Components/Outpasses/StudentAppliedOutpass";
+import StudentPendingOutpasses from "./Pages/PendingOutpasses/StudentPendingOutpasses";
+import StudentApprovedOutpass from "./Components/Outpasses/StudentApprovedOutpass";
+import StudentRejectedOutpass from "./Components/Outpasses/StudentRejectedOutpass";
+import StudentPrevOutpasses from "./Pages/PreviousOutpasses/StudentPrevOutpasses";
 
 const AllRoutes = () => {
     return(
@@ -19,6 +23,10 @@ const AllRoutes = () => {
             <Route path="/WardenHomePage" element={<WardenHomePage />}/>
             <Route path="/Form" element={<Form/>}/>
             <Route path="/StudentAppliedOutpass" element={<StudentAppliedOutpass/>}/>
+            <Route path="/StudentPendingOutpasses" element={<StudentPendingOutpasses/>}/>
+            <Route path="/StudentApprovedOutpass" element={<StudentApprovedOutpass/>}/>
+            <Route path="/StudentRejectedOutpass" element={<StudentRejectedOutpass/>}/>
+            <Route path="/StudentPrevOutpasses" element={<StudentPrevOutpasses/>}/>
         </Routes>
     )
 }

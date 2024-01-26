@@ -11,6 +11,14 @@ const StudentHomePage = () =>{
         navigate('/Form')
     }
 
+    const handleStudentPending = () => {
+        navigate('/StudentPendingOutpasses')
+    }
+
+    const handleStudentPrevious = () => {
+        navigate('/StudentPrevOutpasses')
+    }
+
     return(
         <div className="s-home">
             <div className="bimage"></div>
@@ -23,10 +31,10 @@ const StudentHomePage = () =>{
                     <button onClick={handleApply}>Apply for Outpass</button>
                 </div>
                 <div className="sfunction">
-                    <button>View pending Outpasses</button>
+                    <button onClick={handleStudentPending}>View pending Outpasses</button>
                 </div>
                 <div className="sfunction">
-                    <button>View Previous Outpasses</button>
+                    <button onClick={handleStudentPrevious}>View Previous Outpasses</button>
                 </div>
             </div>
         </div>
