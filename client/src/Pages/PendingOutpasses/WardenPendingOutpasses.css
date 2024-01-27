@@ -1,0 +1,23 @@
+.w-pending{
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    background-image: url("../../Assets/juet.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.w-pending h1{
+    margin: 0;
+    padding: 20px 0 40px 0;
+    text-align: center;
+    font-size: 40px;
+    color:azure;
+    font-weight: normal;
+}
+
+.woutpasses{
+    display: grid;
+    row-gap: 20px;
+    justify-content: center;
+}

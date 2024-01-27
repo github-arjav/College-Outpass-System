@@ -1,11 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./Outpass.css"
 import approved from "../../Assets/approved.png"
 
 const StudentApprovedOutpass = () => {
+
+    const navigate = useNavigate()
+
+    const handlePassClick = () => {
+        navigate("/")
+    }
+
     return(
-        <div className="pass-container">
+        <div className="pass-container" onClick={handlePassClick}>
             <form>
                 <p>JUET Outpass</p>
                 <label htmlFor="fname" className="item1">Name:

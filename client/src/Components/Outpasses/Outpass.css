@@ -8,6 +8,10 @@
     background-color: rgba(0,0,0, 0.7);
 }
 
+.pass-container:hover{
+    cursor: pointer;
+}
+
 .pass-container form{
     display: grid;
     padding: 10px;
