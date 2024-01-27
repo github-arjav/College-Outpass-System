@@ -12,6 +12,8 @@ import StudentPendingOutpasses from "./Pages/PendingOutpasses/StudentPendingOutp
 import StudentApprovedOutpass from "./Components/Outpasses/StudentApprovedOutpass";
 import StudentRejectedOutpass from "./Components/Outpasses/StudentRejectedOutpass";
 import StudentPrevOutpasses from "./Pages/PreviousOutpasses/StudentPrevOutpasses";
+import WardenPendingOutpass from "./Components/Outpasses/WardenPendingOutpass";
+import WardenPendingOutpasses from "./Pages/PendingOutpasses/WardenPendingOutpasses";
 
 const AllRoutes = () => {
     return(
@@ -27,6 +29,8 @@ const AllRoutes = () => {
             <Route path="/StudentApprovedOutpass" element={<StudentApprovedOutpass/>}/>
             <Route path="/StudentRejectedOutpass" element={<StudentRejectedOutpass/>}/>
             <Route path="/StudentPrevOutpasses" element={<StudentPrevOutpasses/>}/>
+            <Route path="/WardenPendingOutpass" element={<WardenPendingOutpass/>}/>
+            <Route path="/WardenPendingOutpasses" element={<WardenPendingOutpasses/>}/>
         </Routes>
     )
 }
