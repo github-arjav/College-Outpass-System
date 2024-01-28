@@ -153,3 +153,31 @@
     font-weight: bold;
     padding: 10px 20px;
 }
+
+.w-approved{
+    color: green;
+    border: solid green;
+    transition: 0.3s ease;
+}
+
+.w-rejected{
+    color: red;
+    border: solid red;
+    transition: 0.3s ease;
+}
+
+.w-approved:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: green;
+    border: solid green;
+    transition: 0.3s ease;
+}
+
+.w-rejected:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: red;
+    border: solid red;
+    transition: 0.3s ease;
+}

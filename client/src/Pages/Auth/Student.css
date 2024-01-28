@@ -33,7 +33,132 @@
     font-weight: normal;
 }
 
-.slogin-box{
+.s-auth-container{
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    height: auto;
+    width: 90%;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.s-login-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.s-login-container p{
+    color: aliceblue;
+    text-align: center;
+}
+
+.s-login-box{
+    border: solid #fff;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4);
+    box-shadow: rgba(237, 214, 214, 0.35) 0px 5px 20px; 
+}
+
+.login{
+    display: grid;
+    gap: 30px;
+    padding: 10px;
+}
+
+.s-login-inp{
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom:solid antiquewhite;
+    padding: 0 0 5px 10px;
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+.s-login-inp::placeholder{
+    color: antiquewhite;
+}
+
+.s-login-btn{
+    background: none;
+    color: antiquewhite;
+    font-size: 20px;
+    border: solid antiquewhite;
+    outline: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: 0.3s ease;
+}
+
+.s-login-btn:hover{
+    cursor: pointer;
+    color: black;
+    background: antiquewhite;
+    transition: 0.2s ease;
+}
+
+.s-register-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.s-register-container p{
+    color: aliceblue;
+    text-align: center;
+}
+
+.s-register-box{
+    border: solid #fff;
+    padding: 10px;
+    border-radius: 15px;
+    width: 150%;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4);
+    box-shadow: rgba(237, 214, 214, 0.35) 0px 5px 20px;
+}
+
+.register{
+    display: grid;
+    gap: 30px;
+    padding: 10px;
+}
+
+.s-register-inp{
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom:solid antiquewhite;
+    padding: 0 0 5px 10px;
+    font-size: 20px;
+    color: antiquewhite;
+}
+
+.s-register-inp::placeholder{
+    color: antiquewhite;
+}
+
+.s-register-btn{
+    background: none;
+    color: antiquewhite;
+    font-size: 20px;
+    border: solid antiquewhite;
+    outline: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    transition: 0.3s ease;
+}
+
+.s-register-btn:hover{
+    cursor: pointer;
+    color: black;
+    background: antiquewhite;
+    transition: 0.2s ease;
+}
+/* .slogin-box{
     position: absolute;
     top: 60%;
     left: 50%;
@@ -43,7 +168,7 @@
     text-align: center;
     color: aliceblue;
     border: solid #fff;
-     border-radius: 15px;
+    border-radius: 15px;
     background-color: rgb(0,0,0); 
     background-color: rgba(0,0,0, 0.4);
     box-shadow: rgba(237, 214, 214, 0.35) 0px 5px 20px;
@@ -110,4 +235,5 @@
     background-color: antiquewhite;
     color: black;
     transition: 0.3s;
-}
+} */
+

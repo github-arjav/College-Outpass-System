@@ -8,7 +8,7 @@ const WardenPendingOutpass = () => {
     const navigate = useNavigate()
 
     const handlePassClick = () => {
-        navigate("/")
+        navigate("/WardenPendingOutpassDetails")
     }
 
     return(
