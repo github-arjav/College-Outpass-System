@@ -89,7 +89,7 @@
 }
 
 .detail-7{
-    grid-column: span 2;
+    grid-column: 1;
     grid-row: 4;
 }
 
@@ -119,6 +119,12 @@
 .detail-10{
     grid-column: 2;
     grid-row: 6;
+    padding-left: 40px;
+}
+
+.detail-11{
+    grid-column: 2;
+    grid-row: 4;
     padding-left: 40px;
 }
 

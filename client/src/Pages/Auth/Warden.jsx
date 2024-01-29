@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import './Warden.css'
+import "./Auth.css"
 
 const Warden = () => {
 
@@ -12,20 +12,40 @@ const Warden = () => {
         navigate('/WardenHomePage')
     }
 
+    const handleWardenRegister = (e) => {
+        e.preventDefault()
+    }
+
     return(
-        <div className="warden">
+        <div className="person">
             <div className="bimage"></div>
-            <div className="wlogin">
+            <div className="auth">
                 <h1>Welcome</h1>
                 <h2>Please login using your webkiosk credentials</h2>
             </div>
-            <div className="wlogin-box">
-                <p>Login for Employees</p>
-                <form className="wlogin-form" onSubmit={handleWardenLogin}>
-                    <input type="text" id="empid" name="empid" placeholder="Employee Id" className="wlogin-fld" required/><br />
-                    <input type="password" id="emppass" name="emppass" placeholder="Password" className="wlogin-fld" required/><br />
-                    <input type="submit" value="login" name="login" className="wlogin-btn" />
-                </form>
+            <div className="auth-container">
+                <div className="auth-container-2">
+                    <p>Already Registered? Login Now</p>
+                    <div className="auth-box">
+                        <form className="auth-2" onSubmit={handleWardenLogin}>
+                            <input type="text" placeholder="Employee Number" className="auth-inp" required/>
+                            <input type="password" placeholder="Password" className="auth-inp" required/>
+                            <input type="submit" value="Login" className="auth-btn"/>
+                        </form>
+                    </div>
+                </div>
+                <div className="auth-container-2">
+                    <p>Still didn't registered? Register Here</p>
+                    <div className="auth-box">
+                        <form className="auth-2" onSubmit={handleWardenRegister}>
+                            <input type="text" placeholder="Full Name" className="auth-inp" required/>
+                            <input type="text" placeholder="Employee Number" className="auth-inp" required/>
+                            <input type="email" placeholder="Email Address (@juetguna.in)" className="auth-inp" required/>
+                            <input type="password" placeholder="Password" className="auth-inp" required/>
+                            <input type="submit" value="Register" className="auth-btn"/>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     )

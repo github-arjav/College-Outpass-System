@@ -11,61 +11,9 @@
     filter: blur(4px) brightness(25%);
 }
 
-.hostel{
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    width: 80%;
-    padding: 20px;
-    text-align: center;
-    color: aliceblue;
-}
-
-.hostel label{
-    font-size: 35px;
-    padding: 20px;
-}
-
-.hostel select{
-    padding: 5px 30px;
-    margin: 10px 0;
-    background: none;
-    border: none;
-    border-bottom: solid aliceblue;
-    outline: none;
-}
-
-.hostel select:hover{
-    cursor: pointer;
-}
-
-.hostel select option{
-    color: black;
-}
-
-.hostel form input[type="submit"]{
-    padding: 5px 20px;
-    margin-left: 30px;
-    background: aliceblue;
-    border: solid aliceblue;
-    border-radius: 15px;
-    font-size: 15px;
-    font-weight: 700;
-    transition: 0.3s ease;
-}
-
-.hostel form input[type="submit"]:hover{
-    cursor: pointer;
-    background: none;
-    color: aliceblue;
-    transition: 0.3s ease;
-}
-
 .form-box{
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -93,6 +41,7 @@
     margin: 0;
     font-weight: normal;
     padding-bottom: 20px;
+    font-style: italic;
 }
 
 .fname{
@@ -105,6 +54,11 @@
     grid-row: 2;
 }
 
+.room{
+    grid-column: 7;
+    grid-row: 2;
+}
+
 
 .days{
     grid-column: 1 / span 1;
@@ -112,12 +66,18 @@
 }
 
 .from{
-    grid-column: 2 / span 3;
+    grid-column: 2 / span 2;
     grid-row: 3;
 }
 
 .to{
-    grid-column: 5 / span 3;
+    grid-column: 5 / span 2;
+    grid-row: 3;
+}
+
+.hostel-no{
+    grid-column: 7;
+    grid-row: 3;
 }
 
 .purpose{
@@ -157,7 +117,7 @@
 
 .date{
     margin-left: 10px;
-    width: 40%;
+    width: 50%;
 }
 
 .date::-webkit-calendar-picker-indicator{
@@ -172,6 +132,8 @@
 }
 
 .sub-btn{
+    grid-column: 1/span 2;
+    grid-row: 6;
     background: none;
     border: solid #fff;
     color: aliceblue;
@@ -179,6 +141,8 @@
     font-size: 20px;
     padding: 5px;
     transition: 0.3s ease;
+    margin-left: 5%;
+    width: 50%;
 }
 
 .sub-btn:hover{

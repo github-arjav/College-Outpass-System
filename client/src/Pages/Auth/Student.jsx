@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import './Student.css'
+import './Auth.css'
 
 const Student = () => {
 
@@ -17,32 +17,32 @@ const Student = () => {
     }
 
     return(
-        <div className="student">
+        <div className="person">
             <div className="bimage"></div>
-            <div className="slogin">
+            <div className="auth">
                 <h1>Welcome</h1>
                 <h2>Please login using your webkiosk credentials</h2>
             </div>
-            <div className="s-auth-container">
-                <div className="s-login-container">
+            <div className="auth-container">
+                <div className="auth-container-2">
                     <p>Registered Student? Login Now</p>
-                    <div className="s-login-box">
-                        <form className="login" onSubmit={handleStudentLogin}>
-                            <input type="text" placeholder="Enrollment Number" className="s-login-inp" required/>
-                            <input type="password" placeholder="Password" className="s-login-inp" required/>
-                            <input type="submit" value="Login" className="s-login-btn"/>
+                    <div className="auth-box">
+                        <form className="auth-2" onSubmit={handleStudentLogin}>
+                            <input type="text" placeholder="Enrollment Number" className="auth-inp" required/>
+                            <input type="password" placeholder="Password" className="auth-inp" required/>
+                            <input type="submit" value="Login" className="auth-btn"/>
                         </form>
                     </div>
                 </div>
-                <div className="s-register-container">
+                <div className="auth-container-2">
                     <p>Still didn't registered? Register Here</p>
-                    <div className="s-register-box">
-                        <form className="register" onSubmit={handleStudentRegister}>
-                        <input type="text" placeholder="Full Name" className="s-register-inp" required/>
-                        <input type="text" placeholder="Enrollment Number" className="s-register-inp" required/>
-                        <input type="email" placeholder="Email Address (@juetguna.in)" className="s-register-inp" required/>
-                        <input type="password" placeholder="Password" className="s-register-inp" required/>
-                        <input type="submit" value="Register" className="s-register-btn"/>
+                    <div className="auth-box">
+                        <form className="auth-2" onSubmit={handleStudentRegister}>
+                        <input type="text" placeholder="Full Name" className="auth-inp" required/>
+                        <input type="text" placeholder="Enrollment Number" className="auth-inp" required/>
+                        <input type="email" placeholder="Email Address (@juetguna.in)" className="auth-inp" required/>
+                        <input type="password" placeholder="Password" className="auth-inp" required/>
+                        <input type="submit" value="Register" className="auth-btn"/>
                     </form>
                     </div>
                 </div>
