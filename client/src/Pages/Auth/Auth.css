@@ -69,6 +69,11 @@
     padding: 10px 40px;
 }
 
+.auth-2 label{
+    color: antiquewhite;
+    font-size: 20px;
+}
+
 .auth-inp{
     background: none;
     outline: none;
@@ -100,4 +105,58 @@
     color: black;
     background: antiquewhite;
     transition: 0.2s ease;
+}
+
+.auth-select{
+    width: 59%;
+    margin-left: 5%;
+}
+
+.auth-select option{
+    color: aliceblue;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.8);
+    font-size: 17px;
+    overflow-y: scroll;
+}
+
+.auth-select option:-webkit-scrollbar{
+    display: none;
+}
+
+.auth-container-otp{
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container-otp h2{
+    color: aliceblue;
+    text-align: center;
+    font-size: 20px;
+}
+
+.otp-box{
+    border: solid #fff;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.4);
+    box-shadow: rgba(237, 214, 214, 0.35) 0px 5px 20px; 
+}
+
+.otp-box p{
+    color: aliceblue;
+    text-align: center;
+    font-size: 17px;
+}
+
+.otp-inp{
+    width: 100%;
+    text-align: center;
+}
+
+.otp-btn{
+    width: 80%;
+    transform: translateX(10%);
+    margin: 20px 0;
 }
