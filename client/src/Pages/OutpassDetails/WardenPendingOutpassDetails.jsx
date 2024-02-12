@@ -1,8 +1,20 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 import "./OutpassDetails.css"
 
 const WardenPendingOutpassDetails = () => {
+
+    const navigate = useNavigate()
+
+    const handleApproved = () => {
+        navigate('/WardenHomePage')              
+    }
+
+    const handleRejected = () => {
+        navigate('/WardenHomePage')
+    }
+
   return (
     <div className='details'>
         <div className="bimage"></div>
@@ -39,8 +51,8 @@ const WardenPendingOutpassDetails = () => {
                         <input type="file" disabled/>
                     </label>
                     <div className="detail-10">
-                        <input type="button" value="Approve" className='status w-approved'/>
-                        <input type="button" value="Reject" className='status w-rejected'/>
+                        <input type="button" value="Approve" className='status w-approved'onClick={handleApproved}/>
+                        <input type="button" value="Reject" className='status w-rejected' onClick={handleRejected}/>
                     </div>
                     <label htmlFor="hostel" className='detail-11'>Hostel:
                         <input type="text" value="H-22" className='details-inp details-width-fix' disabled/>

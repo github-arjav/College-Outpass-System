@@ -104,28 +104,17 @@
     font-weight: bold;
 }
 
-.approve{
-    color: green;
-    border: solid green;
+.detail{
+    border: solid antiquewhite;
+    color: antiquewhite;
+    width: 80%;
+    margin: 0;
     transition: 0.3s ease;
 }
 
-.approve:hover{
+.detail:hover{
     cursor: pointer;
-    background: green;
-    color: #fff;
-    transition: 0.3s ease;
-}
-
-.reject{
-    color: red;
-    border: solid red;
-    transition: 0.3s ease;
-}
-
-.reject:hover{
-    cursor: pointer;
-    background: red;
-    color: #fff;
+    background: antiquewhite;
+    color: black;
     transition: 0.3s ease;
 }

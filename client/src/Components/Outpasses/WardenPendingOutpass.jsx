@@ -33,8 +33,7 @@ const WardenPendingOutpass = () => {
                 <label htmlFor="purpose"className="item-6">Purpose:
                     <input type="text" name="purpose" value="Family Function" className="sa-pass" disabled/>
                 </label>
-                <input type="button" value="Approve" className="outpassbtn item-7 approve"/>
-                <input type="button" value="Reject" className="outpassbtn item-8 reject"/>
+                <input type="button" value="Details >>>" className="outpassbtn item-8 detail"/>
             </form>
         </div>
     )

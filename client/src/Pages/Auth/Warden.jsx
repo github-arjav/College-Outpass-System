@@ -75,7 +75,7 @@ const Warden = () => {
                             <label htmlFor="hostel">Hostel No.
                                         <select name="hostel" id="hostel" className="auth-inp auth-select" value={selectedOption} onChange={handleSelectChange}>
                                             <option value="default">--select--</option>
-                                            <option value="H-1">H-1</option>
+                                            <option value="H-1">H-1 to H-4</option>
                                             <option value="H-2">H-2</option>
                                             <option value="H-3">H-3</option>
                                             <option value="H-4">H-4</option>
@@ -97,6 +97,7 @@ const Warden = () => {
                                             <option value="H-20">H-20</option>
                                             <option value="H-21">H-21</option>
                                             <option value="H-22">H-22</option>
+                                            <option value="Girls">Sharda Bhawan</option>
                                         </select>
                                     </label>
                             <input type="submit" value="Register" className="auth-btn"/>

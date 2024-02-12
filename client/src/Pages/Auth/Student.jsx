@@ -98,6 +98,7 @@ const Student = () => {
                                             <option value="H-20">H-20</option>
                                             <option value="H-21">H-21</option>
                                             <option value="H-22">H-22</option>
+                                            <option value="Girls">Sharda Bhawan</option>
                                         </select>
                                     </label>
                                     <input type="submit" value="Register" className="auth-btn"/>
