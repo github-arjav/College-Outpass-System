@@ -22,8 +22,8 @@ const Form = () => {
             <div className="form-box">
                 <form className="outpass-form" onSubmit={handleApply}>
                     <p className="form-text">Fill out this form to apply for outpass</p>
-                    <input type="text" name="fname" placeholder="Full Name"  className="inp fname" required/>
-                    <input type="text" name="enroll" placeholder="Enrollment Number" className="inp enr" required/>
+                    <input type="text" name="fname" value="Arjav Jain"  className="inp fname" required disabled/>
+                    <input type="text" name="enroll" value="201B060" className="inp enr" required disabled/>
                     <input type="number" name="room" placeholder="Room Number" className="inp room" required/>
                     <input type="number" name="days" placeholder="Duration" className="inp days"  required />
                     <label htmlFor="from" className="from" >From:
@@ -40,7 +40,7 @@ const Form = () => {
                     </label>
                     <input type="submit" value="Apply" name="apply" className="sub-btn" />
                     {isSubmitted && (
-                        <p className="ackn">Outpass successfully applied. Redirecting in 3 seconds...</p>
+                        <p className="ackn">Outpass applied successfully. Redirecting in 3 seconds...</p>
                     )}
                 </form>
             </div>

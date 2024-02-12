@@ -100,7 +100,7 @@
     border: none;
     border-bottom: solid aliceblue;
     width: 90%;
-    font-size: 20px;
+    font-size: 23px;
     outline: none;
     color: antiquewhite;
     padding-left: 7px;
@@ -109,6 +109,7 @@
 .inp::placeholder{
     color: aliceblue;
     opacity: 90%;
+    font-size: 20px;
 }
 
 .outpass-form label{
