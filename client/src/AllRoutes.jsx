@@ -19,6 +19,8 @@ import RejectedOutpassDetails from "./Pages/OutpassDetails/RejectedOutpassDetail
 import PendingOutpassDetails from "./Pages/OutpassDetails/PendingOutpassDetails";
 import WardenPendingOutpassDetails from "./Pages/OutpassDetails/WardenPendingOutpassDetails";
 import WardenPrevOutpasses from "./Pages/PreviousOutpasses/WardenPrevOutpasses";
+import WardenNavbar from "./Components/Navbar/WardenNavbar";
+import StudentNavbar from "./Components/Navbar/StudentNavbar";
 
 const AllRoutes = () => {
     return(
@@ -41,6 +43,8 @@ const AllRoutes = () => {
             <Route path="/PendingOutpassDetails" element={<PendingOutpassDetails/>}/>
             <Route path="/WardenPendingOutpassDetails" element={<WardenPendingOutpassDetails/>}/>
             <Route path="/WardenPrevOutpasses" element={<WardenPrevOutpasses/>}/>
+            <Route path="WardenNavbar" element={<WardenNavbar/>}/>
+            <Route path="StudentNavbar" element={<StudentNavbar/>}/>
         </Routes>
     )
 }
