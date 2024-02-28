@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "./Form.css"
+import StudentNavbar from "../../Components/Navbar/StudentNavbar";
 
 const Form = () => {
 
@@ -19,6 +20,7 @@ const Form = () => {
     return(
         <div className="form">
             <div className="bimage"></div>
+            <div className="nav-bar"><StudentNavbar/></div>
             <div className="form-box">
                 <form className="outpass-form" onSubmit={handleApply}>
                     <p className="form-text">Fill out this form to apply for outpass</p>

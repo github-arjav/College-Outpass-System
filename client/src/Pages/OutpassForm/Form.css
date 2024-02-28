@@ -158,3 +158,10 @@
     grid-column: 3 / span 4;
     color: greenyellow;
 }
+
+.nav-bar{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
