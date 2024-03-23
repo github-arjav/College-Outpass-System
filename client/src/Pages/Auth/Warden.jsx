@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import Select from 'react-select'
 
 import "./Auth.css"
 
@@ -15,11 +16,7 @@ const Warden = () => {
     }
 
     const handleWardenRegister = (e) => {
-        if (selectedOption !== 'default') {
-            setIsSubmitted(true)
-        } else {
-            alert('Please select an option other than default');
-        }
+        setIsSubmitted(true)
     }
 
     const handleOtpSubmitted = (e) => {
@@ -27,11 +24,35 @@ const Warden = () => {
         navigate("/WardenHomePage")
     }
 
-    const [selectedOption, setSelectedOption] = useState('default');
+    const handleHostelChange = () => {
 
-    const handleSelectChange = (e) => {
-        setSelectedOption(e.target.value);
-    };
+    }
+
+    const options = [
+        { value: 'H-1', label: 'H-1' },
+        { value: 'H-2', label: 'H-2' },
+        { value: 'H-3', label: 'H-3' },
+        { value: 'H-4', label: 'H-4' },
+        { value: 'H-5', label: 'H-5' },
+        { value: 'H-6', label: 'H-6' },
+        { value: 'H-7', label: 'H-7' },
+        { value: 'H-8', label: 'H-8' },
+        { value: 'H-9', label: 'H-9' },
+        { value: 'H-10', label: 'H-10' },
+        { value: 'H-11', label: 'H-11' },
+        { value: 'H-12', label: 'H-12' },
+        { value: 'H-13', label: 'H-13' },
+        { value: 'H-14', label: 'H-14' },
+        { value: 'H-15', label: 'H-15' },
+        { value: 'H-16', label: 'H-16' },
+        { value: 'H-17', label: 'H-17' },
+        { value: 'H-18', label: 'H-18' },
+        { value: 'H-19', label: 'H-19' },
+        { value: 'H-20', label: 'H-20' },
+        { value: 'H-21', label: 'H-21' },
+        { value: 'H-22', label: 'H-22' },
+        { value: 'Sharda Bhawan', label: 'Sharda Bhawan' },
+      ];
 
     return(
         <div className="person">
@@ -73,33 +94,12 @@ const Warden = () => {
                             <input type="email" placeholder="Email Address (@juetguna.in)" className="auth-inp" required/>
                             <input type="password" placeholder="Password" className="auth-inp" required/>
                             <label htmlFor="hostel">Hostel No.
-                                        <select name="hostel" id="hostel" className="auth-inp auth-select" value={selectedOption} onChange={handleSelectChange}>
-                                            <option value="default">--select--</option>
-                                            <option value="H-1">H-1 to H-4</option>
-                                            <option value="H-2">H-2</option>
-                                            <option value="H-3">H-3</option>
-                                            <option value="H-4">H-4</option>
-                                            <option value="H-5">H-5</option>
-                                            <option value="H-6">H-6</option>
-                                            <option value="H-7">H-7</option>
-                                            <option value="H-8">H-8</option>
-                                            <option value="H-9">H-9</option>
-                                            <option value="H-10">H-10</option>
-                                            <option value="H-11">H-11</option>
-                                            <option value="H-12">H-12</option>
-                                            <option value="H-13">H-13</option>
-                                            <option value="H-14">H-14</option>
-                                            <option value="H-15">H-15</option>
-                                            <option value="H-16">H-16</option>
-                                            <option value="H-17">H-17</option>
-                                            <option value="H-18">H-18</option>
-                                            <option value="H-19">H-19</option>
-                                            <option value="H-20">H-20</option>
-                                            <option value="H-21">H-21</option>
-                                            <option value="H-22">H-22</option>
-                                            <option value="Girls">Sharda Bhawan</option>
-                                        </select>
-                                    </label>
+                                <Select 
+                                onChange={handleHostelChange}
+                                options={options}
+                                isMulti
+                                />            
+                            </label>
                             <input type="submit" value="Register" className="auth-btn"/>
                         </form>
                     </div>
