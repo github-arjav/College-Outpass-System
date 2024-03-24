@@ -16,6 +16,7 @@ const Student = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [hostel, setHostel] = useState('')
+    const [otp, setOtp] = useState(0)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [selectedOption, setSelectedOption] = useState('')
 
@@ -27,7 +28,7 @@ const Student = () => {
     const handleStudentRegister = (e) => {
         e.preventDefault()
         try {
-            dispatch(studentVerification({ enrollment }))
+            dispatch(studentVerification({ enrollment, email }))
             setIsSubmitted(true)
         } catch (error) {
             console.error(error);
@@ -36,7 +37,7 @@ const Student = () => {
 
     const handleOtpSubmitted = (e) => {
         e.preventDefault()
-        dispatch(studentSignUp({ name, enrollment, email, password, hostel }, navigate))
+        dispatch(studentSignUp({ name, enrollment, email, password, hostel, otp }, navigate))
     }
 
     const handleHostelChange = (selectedOption) => {
@@ -85,7 +86,7 @@ const Student = () => {
                         <div className="otp-box">
                             <p>Please check your email id and enter the OTP</p>
                             <form onSubmit={handleOtpSubmitted}>
-                                <input type="number" name="otp" placeholder="Enter the OTP" className="auth-inp otp-inp" required/>
+                                <input type="number" name="otp" placeholder="Enter the OTP" className="auth-inp otp-inp" onChange={(e) => {setOtp(e.target.value)}} required/>
                                 <input type="submit" value="Verify" className="auth-btn otp-btn"/>
                             </form>
                         </div>

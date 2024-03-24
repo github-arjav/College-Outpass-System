@@ -1,32 +1,51 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Select from 'react-select'
+import { useDispatch } from 'react-redux';
 
 import "./Auth.css"
+import { studentVerification, wardenLogIn, wardenSignUp } from "../../actions/auth";
 
 const Warden = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
+    const [name, setName] = useState('')
+    const [employee, setEmployee] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [hostel, setHostel] = useState([''])
+    const [otp, setOtp] = useState(0)
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [selectedOption, setSelectedOption] = useState('')
 
     const handleWardenLogin = (e) => {
         e.preventDefault()
-        navigate('/WardenHomePage')
+        dispatch(wardenLogIn({ employee, password }, navigate))
     }
 
     const handleWardenRegister = (e) => {
-        setIsSubmitted(true)
+        e.preventDefault()
+        try {
+            dispatch(studentVerification({ employee, email }))
+            setIsSubmitted(true)
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const handleOtpSubmitted = (e) => {
         e.preventDefault()
-        navigate("/WardenHomePage")
+        dispatch(wardenSignUp({ name, employee, email, password, hostel, otp}, navigate))
     }
 
-    const handleHostelChange = () => {
-
-    }
+    const handleHostelChange = (selectedOptions) => {
+        setSelectedOption(selectedOptions);
+        const selectedHostels = selectedOptions.map(option => option.value);
+        setHostel(selectedHostels);
+    };
+    
 
     const options = [
         { value: 'H-1', label: 'H-1' },
@@ -68,7 +87,7 @@ const Warden = () => {
                     <div className="otp-box">
                         <p>Please check your email id and enter the OTP</p>
                         <form onSubmit={handleOtpSubmitted}>
-                            <input type="number" name="otp" placeholder="Enter the OTP" className="auth-inp otp-inp" required/>
+                            <input type="number" name="otp" placeholder="Enter the OTP" className="auth-inp otp-inp" onChange={(e) => {setOtp(e.target.value)}} required/>
                             <input type="submit" value="Verify" className="auth-btn otp-btn"/>
                         </form>
                     </div>
@@ -79,8 +98,8 @@ const Warden = () => {
                     <p>Already Registered? Login Now</p>
                     <div className="auth-box">
                         <form className="auth-2" onSubmit={handleWardenLogin}>
-                            <input type="text" placeholder="Employee Number" className="auth-inp" required/>
-                            <input type="password" placeholder="Password" className="auth-inp" required/>
+                            <input type="text" placeholder="Employee Number" className="auth-inp" onChange={(e) => {setEmployee(e.target.value)}} required/>
+                            <input type="password" placeholder="Password" className="auth-inp" onChange={(e) => {setPassword(e.target.value)}} required/>
                             <input type="submit" value="Login" className="auth-btn"/>
                         </form>
                     </div>
@@ -89,15 +108,17 @@ const Warden = () => {
                     <p>Still didn't registered? Register Here</p>
                     <div className="auth-box">
                         <form className="auth-2" onSubmit={handleWardenRegister}>
-                            <input type="text" placeholder="Full Name" className="auth-inp" required/>
-                            <input type="text" placeholder="Employee Number" className="auth-inp" required/>
-                            <input type="email" placeholder="Email Address (@juetguna.in)" className="auth-inp" required/>
-                            <input type="password" placeholder="Password" className="auth-inp" required/>
+                            <input type="text" placeholder="Full Name" className="auth-inp" onChange={(e) => {setName(e.target.value)}} required/>
+                            <input type="text" placeholder="Employee Number" className="auth-inp" onChange={(e) => {setEmployee(e.target.value)}} required/>
+                            <input type="email" placeholder="Email Address (@juetguna.in)" className="auth-inp" onChange={(e) => {setEmail(e.target.value)}} required/>
+                            <input type="password" placeholder="Password" className="auth-inp" onChange={(e) => {setPassword(e.target.value)}} required/>
                             <label htmlFor="hostel">Hostel No.
                                 <Select 
+                                value={selectedOption}
                                 onChange={handleHostelChange}
                                 options={options}
                                 isMulti
+                                required
                                 />            
                             </label>
                             <input type="submit" value="Register" className="auth-btn"/>
