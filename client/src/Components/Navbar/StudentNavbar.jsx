@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import { useDispatch } from "react-redux";
 
+import { setCurrentUser } from "../../actions/currentUser";
 import './Navbar.css'
 
 const StudentNavbar = () => {
 
-    const navigate = useNavigate()
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
+  }, [dispatch]);
+  
+  const navigate = useNavigate()
 
     const handleLogout = () => {
       navigate('/')

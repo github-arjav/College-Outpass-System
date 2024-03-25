@@ -7,20 +7,15 @@ import Student from "./Pages/Auth/Student";
 import StudentHomePage from "./Pages/HomePage/StudentHomePage";
 import WardenHomePage from "./Pages/HomePage/WardenHomePage";
 import Form from "./Pages/OutpassForm/Form"
-import StudentAppliedOutpass from "./Components/Outpasses/StudentAppliedOutpass";
 import StudentPendingOutpasses from "./Pages/PendingOutpasses/StudentPendingOutpasses";
-import StudentApprovedOutpass from "./Components/Outpasses/StudentApprovedOutpass";
-import StudentRejectedOutpass from "./Components/Outpasses/StudentRejectedOutpass";
 import StudentPrevOutpasses from "./Pages/PreviousOutpasses/StudentPrevOutpasses";
-import WardenPendingOutpass from "./Components/Outpasses/WardenPendingOutpass";
 import WardenPendingOutpasses from "./Pages/PendingOutpasses/WardenPendingOutpasses";
 import ApprovedOutpassDetails from "./Pages/OutpassDetails/ApprovedOutpassDetails";
 import RejectedOutpassDetails from "./Pages/OutpassDetails/RejectedOutpassDetails";
 import PendingOutpassDetails from "./Pages/OutpassDetails/PendingOutpassDetails";
 import WardenPendingOutpassDetails from "./Pages/OutpassDetails/WardenPendingOutpassDetails";
 import WardenPrevOutpasses from "./Pages/PreviousOutpasses/WardenPrevOutpasses";
-import WardenNavbar from "./Components/Navbar/WardenNavbar";
-import StudentNavbar from "./Components/Navbar/StudentNavbar";
+import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
 
 const AllRoutes = () => {
     return(
@@ -31,20 +26,15 @@ const AllRoutes = () => {
             <Route path="/StudentHomePage" element={<StudentHomePage />}/>
             <Route path="/WardenHomePage" element={<WardenHomePage />}/>
             <Route path="/Form" element={<Form/>}/>
-            <Route path="/StudentAppliedOutpass" element={<StudentAppliedOutpass/>}/>
             <Route path="/StudentPendingOutpasses" element={<StudentPendingOutpasses/>}/>
-            <Route path="/StudentApprovedOutpass" element={<StudentApprovedOutpass/>}/>
-            <Route path="/StudentRejectedOutpass" element={<StudentRejectedOutpass/>}/>
             <Route path="/StudentPrevOutpasses" element={<StudentPrevOutpasses/>}/>
-            <Route path="/WardenPendingOutpass" element={<WardenPendingOutpass/>}/>
             <Route path="/WardenPendingOutpasses" element={<WardenPendingOutpasses/>}/>
             <Route path="/ApprovedOutpassDetails" element={<ApprovedOutpassDetails/>}/>
             <Route path="/RejectedOutpassDetails" element={<RejectedOutpassDetails/>}/>
             <Route path="/PendingOutpassDetails" element={<PendingOutpassDetails/>}/>
             <Route path="/WardenPendingOutpassDetails" element={<WardenPendingOutpassDetails/>}/>
             <Route path="/WardenPrevOutpasses" element={<WardenPrevOutpasses/>}/>
-            <Route path="WardenNavbar" element={<WardenNavbar/>}/>
-            <Route path="StudentNavbar" element={<StudentNavbar/>}/>
+            <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
         </Routes>
     )
 }
