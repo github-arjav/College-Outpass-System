@@ -102,6 +102,7 @@ const Student = () => {
                                     <input type="submit" value="Login" className="auth-btn"/>
                                 </form>
                             </div>
+                            <p id="fp" onClick={() => navigate('/ForgotPassword')}>Forgot Password?</p>
                         </div>
                         <div className="auth-container-2">
                             <p>Still didn't registered? Register Here</p>

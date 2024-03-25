@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 
 import studentRoutes from './routes/students.js'
 import wardenRoutes from './routes/wardens.js'
+import outpassRoutes from './routes/outpass.js'
 
 const app = express();
 app.use(express.json({limit: "30mb", extend: true}))
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/student', studentRoutes)
 app.use('/warden', wardenRoutes)
+app.use('/outpass', outpassRoutes)
 
 const PORT = process.env.PORT || 5000
 

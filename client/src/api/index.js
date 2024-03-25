@@ -9,3 +9,6 @@ export const studentSignUp = (authData) => API.post('./student/signup', authData
 export const wardenVerification = (authData) => API.post('./warden/verify', authData)
 export const wardenSignUp = (authData) => API.post('./warden/signup', authData)
 export const wardenLogIn = (authData) => API.post('./warden/login', authData)
+
+export const createOutpass = (outpassData) => API.post('./outpass/submit', outpassData)
+export const getAllOutpasses = () => API.get('/outpass/get')

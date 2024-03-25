@@ -61,36 +61,6 @@ export const studentLogin = async (req, res) => {
      }
 }
 
-
-// export const wardenVerification = async (req, res) => {
-//     const { employee } = req.body;
-//     try {
-//         const existingUser = await warden.findOne({ employee });
-//         if(existingUser){
-//             return res.status(200).json({message: "User exist"})
-//         }
-//     } catch (error) {
-//         res.status(500).json("Something went wrong...")
-//     }
-// }
-
-// export const wardenSignup = async (req, res) => {
-//     const {name, employee, email, password, hostel} = req.body;
-//     try {
-//         const existingUser = await warden.findOne({ employee });
-//         if(existingUser){
-//             return res.status(404).json({message: "User already exist..."})
-//         }
-
-//         const hashedPassword = await bcrypt.hash(password, 12)
-//         const newUser = await warden.create({ name, employee, email, password: hashedPassword, hostel })
-//         const token = jwt.sign({employee: newUser.employee, id:newUser._id}, "test", { expiresIn: '1h'})
-//         res.status(200).json({result: newUser, token})
-//     } catch (error) {
-//         res.status(500).json("Something went wrong...")
-//     } 
-// }
-
 export const wardenVerification = async (req, res) => {
     const { employee, email } = req.body;
     try {

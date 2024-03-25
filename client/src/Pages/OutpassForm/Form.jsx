@@ -1,20 +1,30 @@
 import React, { useState } from "react";
+import {useDispatch, useSelector} from 'react-redux'
+import { useNavigate } from "react-router-dom";
 
 import "./Form.css"
 import StudentNavbar from "../../Components/Navbar/StudentNavbar";
+import { createOutpass } from "../../actions/outpass";
 
 const Form = () => {
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    // const User = useSelector((state) => (state.currentUserReducer))
+    const User = JSON.parse(localStorage.getItem('Profile'))
+
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [room, setRoom] = useState(0)
+    const [duration, setDuration] = useState(0)
+    const [fromDate, setFromDate] = useState('')
+    const [toDate, setToDate] = useState('')
+    const [purpose, setPurpose] = useState('')
+    const [address, setAddress] = useState('')
 
     const handleApply = (e) => {
         e.preventDefault()
-
+        dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address }, navigate));
         setIsSubmitted(true)
-
-        setTimeout(() => {
-            window.location.href = '/StudentHomePage';
-        }, 3000)
     }
 
     return(
@@ -24,19 +34,19 @@ const Form = () => {
             <div className="form-box">
                 <form className="outpass-form" onSubmit={handleApply}>
                     <p className="form-text">Fill out this form to apply for outpass</p>
-                    <input type="text" name="fname" value="Arjav Jain"  className="inp fname" required disabled/>
-                    <input type="text" name="enroll" value="201B060" className="inp enr" required disabled/>
-                    <input type="number" name="room" placeholder="Room Number" className="inp room" required/>
-                    <input type="number" name="days" placeholder="Duration" className="inp days"  required />
+                    <input type="text" name="fname" value={User.result.name}  className="inp fname" required disabled/>
+                    <input type="text" name="enroll" value={User.result.enrollment} className="inp enr" required disabled/>
+                    <input type="number" name="room" placeholder="Room Number" className="inp room" onChange={(e) => {setRoom(e.target.value)}} required/>
+                    <input type="number" name="days" placeholder="Duration" className="inp days" onChange={(e) => {setDuration(e.target.value)}} required />
                     <label htmlFor="from" className="from" >From:
-                        <input type="date" id="from" name="from" placeholder="From" className="inp date" required/>
+                        <input type="date" id="from" name="from" placeholder="From" className="inp date" onChange={(e) => {setFromDate(e.target.value)}} required/>
                     </label>
                     <label htmlFor="to" className="to" >To:
-                        <input type="date" id="to" name="to" placeholder="To" className="inp date" required/>
+                        <input type="date" id="to" name="to" placeholder="To" className="inp date" onChange={(e) => {setToDate(e.target.value)}} required/>
                     </label>
-                    <input type="text" name="hostel" value="H-22" className="inp hostel-no" disabled/>
-                    <input type="text" name="purpose" placeholder="Purpose of Leave" className="inp purpose" required/>
-                    <input type="text" name="adress" placeholder="Adress on Leave" className="inp address" required/>
+                    <input type="text" name="hostel" value={User.result.hostel} className="inp hostel-no" disabled/>
+                    <input type="text" name="purpose" placeholder="Purpose of Leave" className="inp purpose" onChange={(e) => {setPurpose(e.target.value)}} required/>
+                    <input type="text" name="adress" placeholder="Adress on Leave" className="inp address" onChange={(e) => {setAddress(e.target.value)}} required/>
                     <label htmlFor="consent" className="consent" >Parent Consent:
                         <input type="file" id="consent" name="consent" accept=".png, .jpg, .jpeg, .pdf" className="file" required/>
                     </label>

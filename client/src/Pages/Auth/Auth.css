@@ -160,3 +160,15 @@
     transform: translateX(10%);
     margin: 20px 0;
 }
+
+#fp{
+    text-align: left;
+    padding-left: 1.5rem;
+    text-decoration: underline;
+    color: aqua;
+    cursor: pointer;
+}
+
+#fp:hover{
+    color: blue;
+}

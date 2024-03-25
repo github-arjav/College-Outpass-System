@@ -1,4 +1,5 @@
 import * as api from '../api'
+import { setCurrentUser } from './currentUser'
 
 export const studentVerification = (authData) => async (dispatch) => { 
     try {
@@ -13,6 +14,7 @@ export const studentSignUp = (authData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.studentSignUp(authData)
         dispatch({type: 'AUTH', data})
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         navigate('/StudentHomePage')
     } catch (error) {
         console.error(error);
@@ -23,6 +25,7 @@ export const studentLogIn = (authData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.studentLogIn(authData)
         dispatch({type: 'AUTH', data})
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         navigate('/StudentHomePage')
     } catch (error) {
         console.error(error);
@@ -42,6 +45,7 @@ export const wardenSignUp = (authData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.wardenSignUp(authData)
         dispatch({type: 'AUTH', data})
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         navigate('/WardenHomePage')
     } catch (error) {
         console.error(error);
@@ -52,6 +56,7 @@ export const wardenLogIn = (authData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.wardenLogIn(authData)
         dispatch({type: 'AUTH', data})
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         navigate('/StudentHomePage')
     } catch (error) {
         console.error(error);
