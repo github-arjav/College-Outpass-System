@@ -1,10 +1,21 @@
-.w-pending{
+.w-pending {
     height: 100vh;
     width: 100%;
-    box-sizing: border-box;
+    position: relative;
+}
+
+.w-pending::before {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url("../../Assets/juet.png");
     background-repeat: no-repeat;
     background-size: cover;
+    filter: blur(4px) brightness(25%);
+    z-index: -1; 
 }
 
 .w-pending h1{

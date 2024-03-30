@@ -1,5 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getAllOutpasses } from '../../actions/outpass';
 
 import "./StudentHomePage.css"
 
@@ -7,11 +9,15 @@ const StudentHomePage = () =>{
 
     const navigate = useNavigate()
 
+    const dispatch = useDispatch();
+    const User = JSON.parse(localStorage.getItem("Profile"))
+
     const handleApply = () => {
         navigate('/Form')
     }
 
     const handleStudentPending = () => {
+        dispatch(getAllOutpasses({enrollment: User.result.enrollment}))
         navigate('/StudentPendingOutpasses')
     }
 

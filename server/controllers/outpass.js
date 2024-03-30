@@ -13,10 +13,11 @@ export const createOutpass = async (req, res) => {
 }
 
 export const getAllOutpasses = async (req, res) => {
+    const { enrollment } = req.body
     try {
-        const outpassList = await outpass.find();
-        res.status(200).json(outpassList)
+        const outpassList = await outpass.find({ enrollment });
+        return res.status(200).json(outpassList)
     } catch (error) {
-        res.status(404).json({message: error.message})
+        return res.status(404).json("no outpass")
     }
 }

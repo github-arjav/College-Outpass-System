@@ -16,7 +16,7 @@ const StudentAppliedOutpass = ({outpass}) => {
     const fromDate = from.toISOString().split('T')[0];
     
     const to = new Date(outpass.toDate)
-    const toDate = from.toISOString().split('T')[0];
+    const toDate = to.toISOString().split('T')[0];
 
     return(
         <div className="pass-container" onClick={handlePassClick}>

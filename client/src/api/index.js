@@ -11,4 +11,4 @@ export const wardenSignUp = (authData) => API.post('./warden/signup', authData)
 export const wardenLogIn = (authData) => API.post('./warden/login', authData)
 
 export const createOutpass = (outpassData) => API.post('./outpass/submit', outpassData)
-export const getAllOutpasses = () => API.get('/outpass/get')
+export const getAllOutpasses = (enrollData) => API.post('/outpass/post', enrollData)

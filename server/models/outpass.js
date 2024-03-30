@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
 
 const outpassSchema = mongoose.Schema({
-    name: {type: String, required: true},
-    enrollment: {type: String, required: true},
-    room: {type: Number, required:true},
-    duration: {type: Number, required: true},
-    fromDate: {type: Date, required: true},
-    toDate: {type: Date, required: true},
-    hostel: {type: String, required: true},
-    purpose: {type: String, required: true},
-    address: {type: String, required: true},
+    name: {type: String},
+    enrollment: {type: String},
+    room: {type: Number},
+    duration: {type: Number},
+    fromDate: {type: Date},
+    toDate: {type: Date},
+    hostel: {type: String},
+    purpose: {type: String},
+    address: {type: String},
     outpassId: {type: String}
 })
 

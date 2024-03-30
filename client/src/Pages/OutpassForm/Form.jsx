@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import { useNavigate } from "react-router-dom";
 
 import "./Form.css"
 import StudentNavbar from "../../Components/Navbar/StudentNavbar";
-import { createOutpass } from "../../actions/outpass";
+import { createOutpass, getAllOutpasses } from "../../actions/outpass";
 
 const Form = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const User = useSelector((state) => (state.currentUserReducer))
     const User = JSON.parse(localStorage.getItem('Profile'))
 
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -23,8 +22,13 @@ const Form = () => {
 
     const handleApply = (e) => {
         e.preventDefault()
-        dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address }, navigate));
-        setIsSubmitted(true)
+        try {
+            dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address }, navigate));
+            dispatch(getAllOutpasses({enrollment: User.result.enrollment}))
+            setIsSubmitted(true)
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return(
