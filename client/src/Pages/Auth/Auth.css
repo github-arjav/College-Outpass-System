@@ -172,3 +172,7 @@
 #fp:hover{
     color: blue;
 }
+
+.uc{
+    text-transform: uppercase;
+}

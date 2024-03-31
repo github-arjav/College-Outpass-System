@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getAllOutpasses } from '../../actions/outpass';
+import { postAppliedOutpasses } from '../../actions/outpassMovement'
 
 import "./StudentHomePage.css"
 
@@ -17,8 +17,12 @@ const StudentHomePage = () =>{
     }
 
     const handleStudentPending = () => {
-        dispatch(getAllOutpasses({enrollment: User.result.enrollment}))
-        navigate('/StudentPendingOutpasses')
+        try {
+            dispatch(postAppliedOutpasses({enrollment: User.result.enrollment}))
+            navigate('/StudentPendingOutpasses')
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     const handleStudentPrevious = () => {

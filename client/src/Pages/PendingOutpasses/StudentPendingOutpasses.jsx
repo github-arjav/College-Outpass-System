@@ -7,8 +7,8 @@ import "./StudentPendingOutpasses.css"
 
 const StudentPendingOutpasses = () => {
 
-    const outpassList = useSelector(state => state.outpassReducer.data)
-    console.log(outpassList);
+    const outpassList = useSelector(state => state.outpassMovementReducer.data)
+    
     
     return(
         <div className="s-pending">
@@ -21,7 +21,7 @@ const StudentPendingOutpasses = () => {
                         {
                             [...outpassList].reverse().map((outpass) => (
                                 <StudentAppliedOutpass outpass={outpass} key={outpass._id}/>
-                            ))                    
+                            ))                   
                         }
                     </>
                 }

@@ -9,12 +9,3 @@ export const createOutpass = (outpassData, navigate) => async (dispatch) => {
         console.error(error);
     }
 }
-
-export const getAllOutpasses = (enrollData) => async (dispatch) => {
-    try {
-        const { data } = await api.getAllOutpasses(enrollData)
-        dispatch({type: 'FETCH_ALL_OUTPASSES', payload: data})
-    } catch (error) {
-        console.error(error);
-    }
-}

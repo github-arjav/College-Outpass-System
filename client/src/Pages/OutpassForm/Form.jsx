@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./Form.css"
 import StudentNavbar from "../../Components/Navbar/StudentNavbar";
-import { createOutpass, getAllOutpasses } from "../../actions/outpass";
+import { createOutpass } from "../../actions/outpass";
 
 const Form = () => {
 
@@ -19,12 +19,11 @@ const Form = () => {
     const [toDate, setToDate] = useState('')
     const [purpose, setPurpose] = useState('')
     const [address, setAddress] = useState('')
-
+    
     const handleApply = (e) => {
         e.preventDefault()
         try {
             dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address }, navigate));
-            dispatch(getAllOutpasses({enrollment: User.result.enrollment}))
             setIsSubmitted(true)
         } catch (error) {
             console.error(error);

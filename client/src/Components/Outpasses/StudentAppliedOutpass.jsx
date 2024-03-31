@@ -7,7 +7,6 @@ import pending from "../../Assets/pending.png"
 const StudentAppliedOutpass = ({outpass}) => {
 
     const navigate = useNavigate()
-
     const handlePassClick = () => {
         navigate("/PendingOutpassDetails")
     }

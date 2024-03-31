@@ -98,7 +98,7 @@ const Warden = () => {
                     <p>Already Registered? Login Now</p>
                     <div className="auth-box">
                         <form className="auth-2" onSubmit={handleWardenLogin}>
-                            <input type="text" placeholder="Employee Number" className="auth-inp" onChange={(e) => {setEmployee(e.target.value)}} required/>
+                            <input type="text" placeholder="Employee Number" className="auth-inp uc" onChange={(e) => {setEmployee(e.target.value.toUpperCase())}} required/>
                             <input type="password" placeholder="Password" className="auth-inp" onChange={(e) => {setPassword(e.target.value)}} required/>
                             <input type="submit" value="Login" className="auth-btn"/>
                         </form>
@@ -109,8 +109,8 @@ const Warden = () => {
                     <p>Still didn't registered? Register Here</p>
                     <div className="auth-box">
                         <form className="auth-2" onSubmit={handleWardenRegister}>
-                            <input type="text" placeholder="Full Name" className="auth-inp" onChange={(e) => {setName(e.target.value)}} required/>
-                            <input type="text" placeholder="Employee Number" className="auth-inp" onChange={(e) => {setEmployee(e.target.value)}} required/>
+                            <input type="text" placeholder="Full Name" className="auth-inp uc" onChange={(e) => {setName(e.target.value.toUpperCase())}} required/>
+                            <input type="text" placeholder="Employee Number" className="auth-inp uc" onChange={(e) => {setEmployee(e.target.value.toUpperCase())}} required/>
                             <input type="email" placeholder="Email Address (@juetguna.in)" className="auth-inp" onChange={(e) => {setEmail(e.target.value)}} required/>
                             <input type="password" placeholder="Password" className="auth-inp" onChange={(e) => {setPassword(e.target.value)}} required/>
                             <label htmlFor="hostel">Hostel No.
@@ -119,7 +119,51 @@ const Warden = () => {
                                 onChange={handleHostelChange}
                                 options={options}
                                 isMulti
-                                required
+                                isSearchable
+                                placeholder = "Select your hostels.."
+                                        required
+                                        styles={{
+                                            control: (baseStyles, state) => ({
+                                              ...baseStyles,
+                                              border: 'none',
+                                              borderBottom: 'solid',
+                                              boxShadow: state.isFocused ? null : null,
+                                              borderColor: state.isFocused ? 'grey' : 'red',
+                                              "&:hover": {
+                                                borderColor: state.isFocused ? "antiquewhite" : "antiquewhite"
+                                              },
+                                              backgroundColor: 'transparent'
+                                            }),
+                                            dropdownIndicator: (baseStyles) => ({
+                                                ...baseStyles,
+                                                color: 'antiquewhite',
+                                                "&:hover": {
+                                                    color: 'aliceblue'
+                                                },
+                                            }),
+                                            input: (baseStyles) => ({
+                                                ...baseStyles, 
+                                                color: 'antiquewhite',
+                                            }),
+                                            option: (baseStyles) => ({
+                                                ...baseStyles, 
+                                                backgroundColor: '#4F4F4F',
+                                                "&:hover": {
+                                                    backgroundColor: 'rgba(0,0,0, 0.6);'
+                                                }
+                                            }),
+                                            multiValue: (baseStyles) => ({
+                                                ...baseStyles,
+                                                color: 'black'
+                                            }),
+                                            clearIndicator: (baseStyles) => ({
+                                                ...baseStyles,
+                                                color: 'antiquewhite',
+                                                "&:hover": {
+                                                    color: 'red',
+                                                }
+                                            }), 
+                                          }}
                                 />            
                             </label>
                             <input type="submit" value="Register" className="auth-btn"/>

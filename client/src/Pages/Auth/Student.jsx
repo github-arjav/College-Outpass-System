@@ -26,14 +26,21 @@ const Student = () => {
     }
 
     const handleStudentRegister = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        const isValidDomain = email.endsWith('@juetguna.in');
+        if (!isValidDomain) {
+            alert("Invalid email, please enter juet email Id")
+            console.error("Invalid email domain. Please use an email with @juetguna.in domain.");
+            return;
+        }
         try {
-            dispatch(studentVerification({ enrollment, email }))
-            setIsSubmitted(true)
+            dispatch(studentVerification({ enrollment, email }));
+            setIsSubmitted(true);
         } catch (error) {
             console.error(error);
         }
-    }
+    };
+    
 
     const handleOtpSubmitted = (e) => {
         e.preventDefault()
@@ -97,7 +104,7 @@ const Student = () => {
                             <p>Registered Student? Login Now</p>
                             <div className="auth-box">
                                 <form className="auth-2" onSubmit={handleStudentLogin}>
-                                    <input type="text" placeholder="Enrollment Number" className="auth-inp" onChange={(e) => {setEnrollment(e.target.value)}} required/>
+                                    <input type="text" placeholder="Enrollment Number" className="auth-inp uc" onChange={(e) => {setEnrollment(e.target.value.toUpperCase())}} required/>
                                     <input type="password" placeholder="Password" className="auth-inp" onChange={(e) => {setPassword(e.target.value)}} required/>
                                     <input type="submit" value="Login" className="auth-btn"/>
                                 </form>
@@ -108,8 +115,8 @@ const Student = () => {
                             <p>Still didn't registered? Register Here</p>
                             <div className="auth-box">
                                 <form className="auth-2" onSubmit={handleStudentRegister}>
-                                    <input type="text" placeholder="Full Name" className="auth-inp" onChange={(e) => {setName(e.target.value)}} required/>
-                                    <input type="text" placeholder="Enrollment Number" className="auth-inp" onChange={(e) => {setEnrollment(e.target.value)}} required/>
+                                    <input type="text" placeholder="Full Name" className="auth-inp uc" onChange={(e) => {setName(e.target.value.toUpperCase())}} required/>
+                                    <input type="text" placeholder="Enrollment Number" className="auth-inp uc" onChange={(e) => {setEnrollment(e.target.value.toUpperCase())}} required/>
                                     <input type="email" placeholder="Email Address (@juetguna.in)" className="auth-inp" onChange={(e) => {setEmail(e.target.value)}} required/>
                                     <input type="password" placeholder="Password" className="auth-inp" onChange={(e) => {setPassword(e.target.value)}} required/>
                                     <label htmlFor="hostel">Hostel No.
@@ -117,7 +124,43 @@ const Student = () => {
                                         value={selectedOption}
                                         onChange={handleHostelChange}
                                         options={options}
+                                        placeholder = "Select your hostels.."
                                         required
+                                        styles={{
+                                            control: (baseStyles, state) => ({
+                                              ...baseStyles,
+                                              border: 'none',
+                                              borderBottom: 'solid',
+                                              boxShadow: state.isFocused ? null : null,
+                                              borderColor: state.isFocused ? 'grey' : 'red',
+                                              "&:hover": {
+                                                borderColor: state.isFocused ? "antiquewhite" : "antiquewhite"
+                                              },
+                                              backgroundColor: 'transparent'
+                                            }),
+                                            dropdownIndicator: (baseStyles, state) => ({
+                                                ...baseStyles,
+                                                color: 'antiquewhite',
+                                                "&:hover": {
+                                                    color: 'aliceblue'
+                                                },
+                                            }),
+                                            input: (baseStyles) => ({
+                                                ...baseStyles, 
+                                                color: 'antiquewhite',
+                                            }),
+                                            option: (baseStyles) => ({
+                                                ...baseStyles, 
+                                                backgroundColor: '#4F4F4F',
+                                                "&:hover": {
+                                                    backgroundColor: 'rgba(0,0,0, 0.6);'
+                                                }
+                                            }),
+                                            singleValue: (baseStyles) => ({
+                                                ...baseStyles,
+                                                color: 'antiquewhite'
+                                            })
+                                          }}
                                         />
                                     </label>
                                     <input type="submit" value="Register" className="auth-btn"/>

@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useDispatch } from "react-redux";
 
 import { setCurrentUser } from "../../actions/currentUser";
-import { getAllOutpasses } from '../../actions/outpass';
+import { postAppliedOutpasses } from '../../actions/outpassMovement';
 import './Navbar.css'
 
 const StudentNavbar = () => {
@@ -13,13 +13,13 @@ const StudentNavbar = () => {
   const enrollData = User.result.enrollment
   useEffect(() => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
-    dispatch(getAllOutpasses({enrollment: enrollData}))
+    dispatch(postAppliedOutpasses({enrollment: enrollData}))
   }, [dispatch, enrollData]);
   
   const navigate = useNavigate()
   
   const handlePendingOutpasses = () => {
-    dispatch(getAllOutpasses({enrollment: enrollData}))
+    dispatch(postAppliedOutpasses({enrollment: enrollData}))
   }
 
     const handleLogout = () => {

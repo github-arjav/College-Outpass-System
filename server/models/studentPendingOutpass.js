@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const outpassSchema = mongoose.Schema({
+const sPendingOutpassSchema = mongoose.Schema({
     name: {type: String},
     enrollment: {type: String},
     room: {type: Number},
@@ -12,4 +12,4 @@ const outpassSchema = mongoose.Schema({
     address: {type: String}
 })
 
-export default mongoose.model("Outpass", outpassSchema, 'Outpasses')
+export default mongoose.model("S-PendingOutpass", sPendingOutpassSchema, 'StudentPendingOutpasses')
