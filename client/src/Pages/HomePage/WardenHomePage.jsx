@@ -1,5 +1,6 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import WardenNavbar from '../../Components/Navbar/WardenNavbar'
 
 import "./WardenHomePage.css"
 
@@ -18,6 +19,7 @@ const WardenHomePage = () =>{
     return(
         <div className="s-home">
             <div className="bimage"></div>
+            <div className="nav-bar"><WardenNavbar/></div>
             <div className="s-home-info">
                 <h1>Welcome</h1>
                 <h2>What do you want to do?</h2>

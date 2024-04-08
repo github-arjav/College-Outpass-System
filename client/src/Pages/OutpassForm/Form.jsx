@@ -11,8 +11,7 @@ const Form = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const User = JSON.parse(localStorage.getItem('Profile'))
-
-    const [isSubmitted, setIsSubmitted] = useState(false)
+    
     const [room, setRoom] = useState(0)
     const [duration, setDuration] = useState(0)
     const [fromDate, setFromDate] = useState('')
@@ -22,12 +21,7 @@ const Form = () => {
     
     const handleApply = (e) => {
         e.preventDefault()
-        try {
-            dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address }, navigate));
-            setIsSubmitted(true)
-        } catch (error) {
-            console.error(error);
-        }
+        dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address }, navigate));
     }
 
     return(
@@ -54,9 +48,6 @@ const Form = () => {
                         <input type="file" id="consent" name="consent" accept=".png, .jpg, .jpeg, .pdf" className="file" required/>
                     </label>
                     <input type="submit" value="Apply" name="apply" className="sub-btn" />
-                    {isSubmitted && (
-                        <p className="ackn">Outpass applied successfully. Redirecting in 3 seconds...</p>
-                    )}
                 </form>
             </div>
         </div>

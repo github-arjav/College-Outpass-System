@@ -12,4 +12,11 @@ export const wardenLogIn = (authData) => API.post('./warden/login', authData)
 
 export const createOutpass = (outpassData) => API.post('./outpass/submit', outpassData)
 
+export const sendStudentOtp = (fpData) => API.post('./forgot-pass/send-student-otp', fpData)
+export const sendWardenOtp = (fpData) => API.post('./forgot-pass/send-warden-otp', fpData)
+export const verifyStudentOtp = (fpData) => API.post('./forgot-pass/verify-student-otp', fpData)
+export const verifyWardenOtp = (fpData) => API.post('./forgot-pass/verify-warden-otp', fpData)
+export const changeStudentPass = (fpData) => API.post('./forgot-pass/change-student-pass', fpData)
+export const changeWardenPass = (fpData) => API.post('./forgot-pass/change-warden-pass', fpData)
+
 export const postAppliedOutpasses = (movementData) => API.post('/move-outpass/post', movementData)

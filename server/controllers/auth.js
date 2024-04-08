@@ -14,7 +14,7 @@ export const studentVerification = async (req, res) => {
         }
         const generatedOTP = Math.floor(1000 + Math.random() * 9000);
         await emailOtp.create({ email: email, otp: generatedOTP });
-        return res.status(200).json({ message: "New user, check your email for OTP" });
+        return res.status(200).json({ message: "Check your email for OTP" });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Something went wrong, OTP not generated" });
@@ -70,7 +70,7 @@ export const wardenVerification = async (req, res) => {
         }
         const generatedOTP = Math.floor(1000 + Math.random() * 9000);
         await emailOtp.create({ email: email, otp: generatedOTP });
-        return res.status(200).json({ message: "New user, check your email for OTP" });
+        return res.status(200).json({ message: "Check your email for OTP" });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Something went wrong, OTP not generated" });

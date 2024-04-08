@@ -2,9 +2,10 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Select from 'react-select'
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import "./Auth.css"
-import { studentVerification, wardenLogIn, wardenSignUp } from "../../actions/auth";
+import { wardenLogIn, wardenSignUp, wardenVerification } from "../../actions/auth";
 
 const Warden = () => {
 
@@ -25,14 +26,17 @@ const Warden = () => {
         dispatch(wardenLogIn({ employee, password }, navigate))
     }
 
-    const handleWardenRegister = (e) => {
+    const handleWardenRegister = async (e) => {
         e.preventDefault()
-        try {
-            dispatch(studentVerification({ employee, email }))
-            setIsSubmitted(true)
-        } catch (error) {
-            console.error(error);
+        const isValidDomain = email.endsWith('@juetguna.in');
+        if (!isValidDomain) {
+            toast.error("Invalid email, please enter JUET email Id")
+            return;
         }
+        const response = await dispatch(wardenVerification({ employee, email }))
+            if(response){
+                setIsSubmitted(true);
+            }
     }
 
     const handleOtpSubmitted = (e) => {
@@ -103,7 +107,7 @@ const Warden = () => {
                             <input type="submit" value="Login" className="auth-btn"/>
                         </form>
                     </div>
-                    <p id="fp" onClick={() => navigate('/ForgotPassword')}>Forgot Password?</p>
+                    <p id="fp" onClick={() => navigate('/WardenForgotPassword')}>Forgot Password?</p>
                 </div>
                 <div className="auth-container-2">
                     <p>Still didn't registered? Register Here</p>

@@ -15,7 +15,8 @@ import RejectedOutpassDetails from "./Pages/OutpassDetails/RejectedOutpassDetail
 import PendingOutpassDetails from "./Pages/OutpassDetails/PendingOutpassDetails";
 import WardenPendingOutpassDetails from "./Pages/OutpassDetails/WardenPendingOutpassDetails";
 import WardenPrevOutpasses from "./Pages/PreviousOutpasses/WardenPrevOutpasses";
-import ForgotPassword from "./Pages/ForgotPassword/ForgotPassword";
+import StudentForgotPassword from "./Pages/ForgotPassword/StudentForgotPassword";
+import WardenForgotPassword from "./Pages/ForgotPassword/WardenForgotPassword";
 
 const AllRoutes = () => {
     return(
@@ -34,7 +35,8 @@ const AllRoutes = () => {
             <Route path="/PendingOutpassDetails" element={<PendingOutpassDetails/>}/>
             <Route path="/WardenPendingOutpassDetails" element={<WardenPendingOutpassDetails/>}/>
             <Route path="/WardenPrevOutpasses" element={<WardenPrevOutpasses/>}/>
-            <Route path="/ForgotPassword" element={<ForgotPassword/>}/>
+            <Route path="/StudentForgotPassword" element={<StudentForgotPassword/>}/>
+            <Route path="/WardenForgotPassword" element={<WardenForgotPassword/>}/>
         </Routes>
     )
 }

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import './Auth.css'
 import { studentLogIn, studentSignUp, studentVerification } from "../../actions/auth";
@@ -25,20 +26,17 @@ const Student = () => {
         dispatch(studentLogIn({ enrollment, password }, navigate))
     }
 
-    const handleStudentRegister = (e) => {
+    const handleStudentRegister = async (e) => {
         e.preventDefault();
         const isValidDomain = email.endsWith('@juetguna.in');
         if (!isValidDomain) {
-            alert("Invalid email, please enter juet email Id")
-            console.error("Invalid email domain. Please use an email with @juetguna.in domain.");
+            toast.error("Invalid email, please enter JUET email Id")
             return;
         }
-        try {
-            dispatch(studentVerification({ enrollment, email }));
-            setIsSubmitted(true);
-        } catch (error) {
-            console.error(error);
-        }
+        const response = await dispatch(studentVerification({ enrollment, email }))
+            if(response){
+                setIsSubmitted(true);
+            }
     };
     
 
@@ -109,7 +107,7 @@ const Student = () => {
                                     <input type="submit" value="Login" className="auth-btn"/>
                                 </form>
                             </div>
-                            <p id="fp" onClick={() => navigate('/ForgotPassword')}>Forgot Password?</p>
+                            <p id="fp" onClick={() => navigate('/StudentForgotPassword')}>Forgot Password?</p>
                         </div>
                         <div className="auth-container-2">
                             <p>Still didn't registered? Register Here</p>

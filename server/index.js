@@ -7,6 +7,7 @@ import studentRoutes from './routes/students.js'
 import wardenRoutes from './routes/wardens.js'
 import outpassRoutes from './routes/outpass.js'
 import moveOutpassRoutes from './routes/outpassMovement.js'
+import forgotPassRoutes from './routes/forgotPassword.js'
 
 const app = express();
 app.use(express.json({limit: "30mb", extend: true}))
@@ -23,6 +24,7 @@ app.use('/student', studentRoutes)
 app.use('/warden', wardenRoutes)
 app.use('/outpass', outpassRoutes)
 app.use('/move-outpass', moveOutpassRoutes)
+app.use('/forgot-pass', forgotPassRoutes)
 
 const PORT = process.env.PORT || 5000
 

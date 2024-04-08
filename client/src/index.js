@@ -7,6 +7,8 @@ import { applyMiddleware, compose } from 'redux';
 import {legacy_createStore as createStore} from 'redux'
 import {thunk} from 'redux-thunk'
 import Reducers from './reducers';
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const store = createStore(Reducers, compose(applyMiddleware(thunk)))
 
@@ -15,6 +17,13 @@ root.render(
   <Provider store={store}>
     <React.StrictMode>
       <App />
+      <ToastContainer
+      position='top-right'
+      autoClose={2000}
+      pauseOnHover={false}
+      transition={Slide}
+      closeOnClick={true} 
+      />
     </React.StrictMode>
   </Provider>
 );
