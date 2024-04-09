@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {useNavigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify'
 
 import { verifyWardenOtp, changeWardenPass, sendWardenOtp } from '../../actions/forgotPassword'
 
@@ -25,6 +26,11 @@ const WardenForgotPassword = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if(!isDetailSub){
+            const isValidDomain = email.endsWith('@juetguna.in');
+            if (!isValidDomain) {
+                toast.error("Invalid email, please enter JUET email Id")
+                return;
+            }
             const response = await dispatch(sendWardenOtp({employee, email}))
             if(response){
                 setIsDetailSub(true) 
@@ -48,7 +54,7 @@ const WardenForgotPassword = () => {
         if(newPass === rePass){
             dispatch(changeWardenPass({employee, email, password}, navigate))
         }else{
-            alert("Passwords in both fields must match")
+            toast.warning("Passwords in both fields must match")
         }
     }
 

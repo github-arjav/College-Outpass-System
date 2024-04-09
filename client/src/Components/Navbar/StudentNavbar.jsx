@@ -23,7 +23,9 @@ const StudentNavbar = () => {
   }
 
     const handleLogout = () => {
+      dispatch({ type: 'LOGOUT' })
       navigate('/')
+      setCurrentUser(null)
     }
 
   return (

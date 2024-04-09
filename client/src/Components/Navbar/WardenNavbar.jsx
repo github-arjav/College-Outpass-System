@@ -1,14 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
+import { useDispatch } from "react-redux";
+
+import { setCurrentUser } from "../../actions/currentUser";
 
 import './Navbar.css'
 
 const WardenNavbar = () => {
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const User = JSON.parse(localStorage.getItem("Profile"))
+
+  useEffect(() => {
+    dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
+  }, [dispatch]);
 
   const handleLogout = () => {
-    navigate('/')
+    dispatch({ type: 'LOGOUT' })
+      navigate('/')
+      setCurrentUser(null)
   }
 
   return (

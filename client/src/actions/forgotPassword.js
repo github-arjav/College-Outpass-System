@@ -49,7 +49,7 @@ export const changeStudentPass = (fpData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.changeStudentPass(fpData)
         dispatch({type: 'CHANGE-PASS', payload: data})
-        navigate('/')
+        navigate('/Student')
         toast.success(data.message)
         return true
     } catch (error) {
@@ -61,7 +61,7 @@ export const changeWardenPass = (fpData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.changeWardenPass(fpData)
         dispatch({type: 'CHANGE-PASS', payload: data})
-        navigate('/')
+        navigate('/Warden')
         toast.success(data.message)
         return true
     } catch (error) {
