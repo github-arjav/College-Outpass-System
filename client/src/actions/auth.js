@@ -64,7 +64,7 @@ export const wardenLogIn = (authData, navigate) => async (dispatch) => {
         const { data } = await api.wardenLogIn(authData)
         dispatch({type: 'AUTH', data})
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-        navigate('/StudentHomePage')
+        navigate('/WardenHomePage')
     } catch (error) {
         toast.error("Invalid Credentials")
     }

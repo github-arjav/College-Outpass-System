@@ -1,10 +1,11 @@
 import express from 'express';
 
-import { postAppliedOutpasses, showOutpassDetail } from '../controllers/outpassMovement.js';
+import { postAppliedOutpasses, sendOutpassDetails, showWardenPendingOutpasses } from '../controllers/outpassMovement.js';
 
 const router = express.Router();
 
 router.post('/post', postAppliedOutpasses)
-router.post('/detail', showOutpassDetail)
+router.post('/send-details', sendOutpassDetails)
+router.post('/show-warden-pending', showWardenPendingOutpasses)
 
 export default router

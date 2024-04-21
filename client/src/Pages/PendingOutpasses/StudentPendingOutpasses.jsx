@@ -16,14 +16,11 @@ const StudentPendingOutpasses = () => {
             <h1>Find your Pending Outpasses</h1>
             <div className="outpasses">
                 {
-                    outpassList == null ? <h1>Loading...</h1> : 
-                    <>
-                        {
-                            [...outpassList].reverse().map((outpass) => (
-                                <StudentAppliedOutpass outpass={outpass} key={outpass._id}/>
-                            ))                   
-                        }
-                    </>
+                    !outpassList ? <h1>Loading...</h1> : Array.isArray(outpassList) && outpassList.length > 0 ? (
+                        [...outpassList].reverse().map((outpass) => (
+                            <StudentAppliedOutpass outpass={outpass} key={outpass._id}/>
+                        ))
+                    ) : <h1>No pending outpasses found</h1>
                 }
             </div>
         </div>

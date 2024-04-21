@@ -28,7 +28,7 @@ app.use('/forgot-pass', forgotPassRoutes)
 
 const PORT = process.env.PORT || 5000
 
-const DATABASE_URL = process.env.DATABASE_URL 
+const DATABASE_URL = process.env.DATABASE_URL
 
 mongoose.connect( DATABASE_URL)
     .then(() => app.listen(PORT, () => {console.log(`Server running on port ${PORT}`)}))

@@ -7,6 +7,7 @@ export const createOutpass = (outpassData, navigate) => async (dispatch) => {
         dispatch({type: 'PASS', payload: data})
         toast.success("Outpass Applied Successfully")
         navigate('/StudentHomePage')
+        return true
     } catch (error) {
         toast.error("Failed to apply Outpass")
     }

@@ -1,16 +1,13 @@
 import outpass from "../models/outpass.js";
-import sPending from '../models/studentPendingOutpass.js'
-import wPending from '../models/wardenPendingOutpass.js'
+import Pending from '../models/PendingOutpass.js'
 
 export const createOutpass = async (req, res) => {
     const outpassData = req.body
     const newOutpass = new outpass({...outpassData});
-    const newSPOutpass = new sPending({...outpassData});
-    const newWPOutpass = new wPending({...outpassData});
+    const POutpass = new Pending({...outpassData});
     try {
             await newOutpass.save()
-            await newSPOutpass.save()
-            await newWPOutpass.save()
+            await POutpass.save()
             return res.status(200).json("Outpass saved successfully")
     } catch (error) {
         console.error(error);

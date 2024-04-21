@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useDispatch} from 'react-redux'
 import { useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 import "./Form.css"
 import StudentNavbar from "../../Components/Navbar/StudentNavbar";
@@ -18,10 +19,15 @@ const Form = () => {
     const [toDate, setToDate] = useState('')
     const [purpose, setPurpose] = useState('')
     const [address, setAddress] = useState('')
+
+    const generateUniqueId = () => {
+        return uuidv4();
+    }
     
     const handleApply = (e) => {
         e.preventDefault()
-        dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address }, navigate));
+        const outpassId = generateUniqueId();
+        dispatch(createOutpass({name: User.result.name, enrollment: User.result.enrollment, room, duration, fromDate, toDate, hostel: User.result.hostel, purpose, address, outpassId: outpassId }, navigate));
     }
 
     return(

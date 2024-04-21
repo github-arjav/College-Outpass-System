@@ -9,14 +9,15 @@ import './Navbar.css'
 const StudentNavbar = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const User = JSON.parse(localStorage.getItem("Profile"))
   const enrollData = User.result.enrollment
+
   useEffect(() => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
     dispatch(postAppliedOutpasses({enrollment: enrollData}))
   }, [dispatch, enrollData]);
-  
-  const navigate = useNavigate()
   
   const handlePendingOutpasses = () => {
     dispatch(postAppliedOutpasses({enrollment: enrollData}))

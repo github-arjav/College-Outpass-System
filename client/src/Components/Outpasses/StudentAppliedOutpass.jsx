@@ -1,14 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 import "./Outpass.css"
 import pending from "../../Assets/pending.png"
+import { sendOutpassDetails } from "../../actions/outpassMovement";
 
 const StudentAppliedOutpass = ({outpass}) => {
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
     const handlePassClick = () => {
-        navigate("/PendingOutpassDetails")
+        const outpassId = outpass.outpassId
+        dispatch(sendOutpassDetails({ outpassId }, navigate))
     }
 
     const from = new Date(outpass.fromDate)

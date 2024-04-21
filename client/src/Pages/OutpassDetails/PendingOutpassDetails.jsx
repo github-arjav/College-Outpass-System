@@ -1,8 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
 import "./OutpassDetails.css"
 
 const PendingOutpassDetails = () => {
+
+    const outpassDetails = useSelector(state => state.outpassMovementReducer.data);
+
+    const from = new Date(outpassDetails.fromDate)
+    const fromDate = from.toISOString().split('T')[0];
+    
+    const to = new Date(outpassDetails.toDate)
+    const toDate = to.toISOString().split('T')[0];
+
+
   return (
     <div className='details'>
         <div className="bimage"></div>
@@ -12,28 +23,28 @@ const PendingOutpassDetails = () => {
             <div className="details-box">
                 <form className="details-form">
                     <label htmlFor="fname" className='detail-1'>Name:
-                        <input type="text" value="Arjav Jain" className='details-inp' disabled/>
+                        <input type="text" value={outpassDetails.name} className='details-inp' disabled/>
                     </label>
                     <label htmlFor="enroll" className='detail-2'>Er. No:
-                        <input type="text" value="201B060" className='details-inp details-width-fix' disabled/>
+                        <input type="text" value={outpassDetails.enrollment} className='details-inp details-width-fix' disabled/>
                     </label>
                     <label htmlFor="room" className='detail-3'>Room No:
-                        <input type="number" value="85" className='details-inp details-width-fix' disabled/>
+                        <input type="number" value={outpassDetails.room} className='details-inp details-width-fix' disabled/>
                     </label>
                     <label htmlFor="duration" className='detail-4'>Duration:
-                        <input type="number" value="3" className='details-inp details-width-fix' disabled/>
+                        <input type="number" value={outpassDetails.duration} className='details-inp details-width-fix' disabled/>
                     </label>
                     <label htmlFor="from" className='detail-5'>From:
-                        <input type="date" value="2024-02-01" className='details-inp details-date' disabled/>
+                        <input type="date" value={fromDate} className='details-inp details-date' disabled/>
                     </label>
                     <label htmlFor="to" className='detail-6'>To:
-                        <input type="date" value="2024-02-03" className='details-inp details-date' disabled/>
+                        <input type="date" value={toDate} className='details-inp details-date' disabled/>
                     </label>
                     <label htmlFor="purpose" className='detail-7'>Purpose of Leave:
-                        <input type="text" value="Family Function" className='details-inp details-width-fix' disabled/>
+                        <input type="text" value={outpassDetails.purpose} className='details-inp details-width-fix' disabled/>
                     </label>
                     <label htmlFor="address" className='detail-8'>Address while on leave:
-                        <input type="text" value="Bhopal (M.P)" className='details-inp' disabled/>
+                        <input type="text" value={outpassDetails.address} className='details-inp' disabled/>
                     </label>
                     <label htmlFor="consent" className='detail-9'>Parent Consent:
                         <input type="file" disabled/>

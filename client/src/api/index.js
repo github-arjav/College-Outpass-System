@@ -20,3 +20,5 @@ export const changeStudentPass = (fpData) => API.post('./forgot-pass/change-stud
 export const changeWardenPass = (fpData) => API.post('./forgot-pass/change-warden-pass', fpData)
 
 export const postAppliedOutpasses = (movementData) => API.post('/move-outpass/post', movementData)
+export const sendOutpassDetails = (movementData) => API.post('/move-outpass/send-details', movementData)
+export const showWardenPendingOutpasses = (movementData) => API.post('/move-outpass/show-warden-pending', movementData)

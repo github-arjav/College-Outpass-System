@@ -9,7 +9,8 @@ const outpassSchema = mongoose.Schema({
     toDate: {type: Date},
     hostel: {type: String},
     purpose: {type: String},
-    address: {type: String}
+    address: {type: String},
+    outpassId: {type: String}
 })
 
 export default mongoose.model("Outpass", outpassSchema, 'Outpasses')
