@@ -6,10 +6,10 @@ import "./OutpassDetails.css"
 const PendingOutpassDetails = () => {
 
     const outpassDetails = useSelector(state => state.outpassMovementReducer.data);
-
+    
     const from = new Date(outpassDetails.fromDate)
     const fromDate = from.toISOString().split('T')[0];
-    
+
     const to = new Date(outpassDetails.toDate)
     const toDate = to.toISOString().split('T')[0];
 

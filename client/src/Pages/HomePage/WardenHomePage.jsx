@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {useNavigate} from "react-router-dom";
+import { useDispatch } from "react-redux";
 import WardenNavbar from '../../Components/Navbar/WardenNavbar'
+import { showWardenPendingOutpasses } from '../../actions/outpassMovement'
 
 import "./WardenHomePage.css"
 
 const WardenHomePage = () =>{
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const User = JSON.parse(localStorage.getItem("Profile"))
+    const employeeData = User.result.employee
+
+    useEffect(() => {
+        dispatch(showWardenPendingOutpasses({employee: employeeData}))
+      }, [dispatch, employeeData]);
 
     const handleWardenPending = () => {
+        dispatch(showWardenPendingOutpasses({employee: employeeData}))
         navigate('/WardenPendingOutpasses')
     }
 

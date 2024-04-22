@@ -10,6 +10,7 @@ const StudentAppliedOutpass = ({outpass}) => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
     const handlePassClick = () => {
         const outpassId = outpass.outpassId
         dispatch(sendOutpassDetails({ outpassId }, navigate))

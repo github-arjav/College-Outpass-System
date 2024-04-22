@@ -2,6 +2,8 @@ import React from "react";
 import {useNavigate} from "react-router-dom"
 import { useDispatch } from 'react-redux'
 
+import { sendWOutpassDetails } from "../../actions/outpassMovement";
+
 import "./WardenOutpass.css"
 
 const WardenPendingOutpass = ({outpass}) => {
@@ -10,7 +12,8 @@ const WardenPendingOutpass = ({outpass}) => {
     const dispatch = useDispatch()
 
     const handlePassClick = () => {
-        navigate("/WardenPendingOutpassDetails")
+        const outpassId = outpass.outpassId
+        dispatch(sendWOutpassDetails({ outpassId }, navigate))
     }
 
     const from = new Date(outpass.fromDate)

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const wPrevOutpassSchema = mongoose.Schema({
+const PrevOutpassSchema = mongoose.Schema({
     name: {type: String},
     enrollment: {type: String},
     room: {type: Number},
@@ -9,7 +9,8 @@ const wPrevOutpassSchema = mongoose.Schema({
     toDate: {type: Date},
     hostel: {type: String},
     purpose: {type: String},
-    address: {type: String}
+    address: {type: String},
+    outpassId: {type: String}
 })
 
-export default mongoose.model("W-PrevOutpass", wPrevOutpassSchema, 'WardenPrevOutpasses')
+export default mongoose.model("PrevOutpass", PrevOutpassSchema, 'PrevOutpasses')

@@ -1,5 +1,6 @@
 import outpass from "../models/outpass.js";
 import Pending from '../models/PendingOutpass.js'
+import Previous from "../models/PrevOutpass.js";
 import Wardens from '../models/warden.js'
 
 export const postAppliedOutpasses = async (req, res) => {
@@ -36,5 +37,36 @@ export const showWardenPendingOutpasses = async (req, res) => {
             return res.status(200).json(outpasses)
     } catch (error) {
         return res.status(500).json({message: "cannot find outpasses"})
+    }
+}
+
+export const moveOutpasses = async (req, res) => {
+    const { outpassId } = req.body
+    const outpass = await Pending.findOne({ outpassId })
+    try {
+        if(!outpass){
+            return res.status(404).json({message: "Outpass not found"})
+        }
+        const { name, enrollment, room, duration, fromDate, toDate, hostel, purpose, address, outpassId } = outpass;
+
+        const newOutpass = new Previous({
+            name,
+            enrollment,
+            room,
+            duration,
+            fromDate,
+            toDate,
+            hostel,
+            purpose,
+            address,
+            outpassId
+        });
+
+        await newOutpass.save();
+        await Pending.deleteOne({ outpassId })
+        return res.status(200).json("Outpass moved succesfully")
+    } catch (error) {
+        console.error("Error:", error)
+        return res.status(500).json({message: "cannot move the outpass"})
     }
 }
