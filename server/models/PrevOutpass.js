@@ -10,7 +10,8 @@ const PrevOutpassSchema = mongoose.Schema({
     hostel: {type: String},
     purpose: {type: String},
     address: {type: String},
-    outpassId: {type: String}
+    outpassId: {type: String},
+    evaluation: {type: Boolean}
 })
 
 export default mongoose.model("PrevOutpass", PrevOutpassSchema, 'PrevOutpasses')

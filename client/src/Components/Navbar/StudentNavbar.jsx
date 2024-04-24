@@ -3,7 +3,7 @@ import {Link, useNavigate} from 'react-router-dom'
 import { useDispatch } from "react-redux";
 
 import { setCurrentUser } from "../../actions/currentUser";
-import { postAppliedOutpasses } from '../../actions/outpassMovement';
+import { postAppliedOutpasses, showPrevOutpasses } from '../../actions/outpassMovement';
 import './Navbar.css'
 
 const StudentNavbar = () => {
@@ -17,10 +17,15 @@ const StudentNavbar = () => {
   useEffect(() => {
     dispatch(setCurrentUser(JSON.parse(localStorage.getItem("Profile"))));
     dispatch(postAppliedOutpasses({enrollment: enrollData}))
+    dispatch(showPrevOutpasses({enrollment: enrollData}))
   }, [dispatch, enrollData]);
   
   const handlePendingOutpasses = () => {
     dispatch(postAppliedOutpasses({enrollment: enrollData}))
+  }
+
+  const handlePrevOutpasses = () => {
+    dispatch(showPrevOutpasses({enrollment: enrollData}))
   }
 
     const handleLogout = () => {
@@ -36,7 +41,7 @@ const StudentNavbar = () => {
           <Link to='/StudentHomePage' className='content-i'>Home</Link>
           <Link to='/Form' className="content-i">Apply for Outpass</Link>
           <Link to='/StudentPendingOutpasses' onClick={handlePendingOutpasses} className="content-i">Pending Outpasses</Link>
-          <Link to='/StudentPrevOutpasses' className='content-i'>Previous Outpasses</Link>
+          <Link to='/StudentPrevOutpasses' onClick={handlePrevOutpasses} className='content-i'>Previous Outpasses</Link>
           <button className="content-i logout" onClick={handleLogout}>Log Out</button>
         </div>
     </div>

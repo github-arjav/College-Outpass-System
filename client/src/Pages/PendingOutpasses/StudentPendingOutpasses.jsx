@@ -1,13 +1,23 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import StudentAppliedOutpass from "../../Components/Outpasses/StudentAppliedOutpass"
 import StudentNavbar from "../../Components/Navbar/StudentNavbar"
+import { postAppliedOutpasses } from "../../actions/outpassMovement";
 
 import "./StudentPendingOutpasses.css"
 
 const StudentPendingOutpasses = () => {
 
     const outpassList = useSelector(state => state.outpassMovementReducer.data)
+
+    const dispatch = useDispatch()
+
+    const User = JSON.parse(localStorage.getItem("Profile"))
+    const enrollData = User.result.enrollment
+
+    useEffect(() => {
+        dispatch(postAppliedOutpasses({enrollment: enrollData}))
+      }, [dispatch, enrollData]);
     
     
     return(

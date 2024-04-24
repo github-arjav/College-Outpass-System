@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postAppliedOutpasses } from '../../actions/outpassMovement'
+import { postAppliedOutpasses, showPrevOutpasses } from '../../actions/outpassMovement'
 import StudentNavbar from "../../Components/Navbar/StudentNavbar";
 
 import "./StudentHomePage.css"
@@ -27,6 +27,7 @@ const StudentHomePage = () =>{
     }
 
     const handleStudentPrevious = () => {
+        dispatch(showPrevOutpasses({enrollment: User.result.enrollment}))
         navigate('/StudentPrevOutpasses')
     }
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import WardenNavbar from '../../Components/Navbar/WardenNavbar'
-import { showWardenPendingOutpasses } from '../../actions/outpassMovement'
+import { showWardenPendingOutpasses, showWardenPreviousOutpasses } from '../../actions/outpassMovement'
 
 import "./WardenHomePage.css"
 
@@ -15,6 +15,7 @@ const WardenHomePage = () =>{
 
     useEffect(() => {
         dispatch(showWardenPendingOutpasses({employee: employeeData}))
+        dispatch(showWardenPreviousOutpasses({employee: employeeData}))
       }, [dispatch, employeeData]);
 
     const handleWardenPending = () => {
@@ -23,6 +24,7 @@ const WardenHomePage = () =>{
     }
 
     const handleWardenPrev = () => {
+        dispatch(showWardenPreviousOutpasses({employee: employeeData}))
         navigate('/WardenPrevOutpasses')
     }
 

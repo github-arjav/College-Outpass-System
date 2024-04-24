@@ -10,8 +10,7 @@ import Form from "./Pages/OutpassForm/Form"
 import StudentPendingOutpasses from "./Pages/PendingOutpasses/StudentPendingOutpasses";
 import StudentPrevOutpasses from "./Pages/PreviousOutpasses/StudentPrevOutpasses";
 import WardenPendingOutpasses from "./Pages/PendingOutpasses/WardenPendingOutpasses";
-import ApprovedOutpassDetails from "./Pages/OutpassDetails/ApprovedOutpassDetails";
-import RejectedOutpassDetails from "./Pages/OutpassDetails/RejectedOutpassDetails";
+import PreviousOutpassDetails from "./Pages/OutpassDetails/PreviousOutpassDetails";
 import PendingOutpassDetails from "./Pages/OutpassDetails/PendingOutpassDetails";
 import WardenPendingOutpassDetails from "./Pages/OutpassDetails/WardenPendingOutpassDetails";
 import WardenPrevOutpasses from "./Pages/PreviousOutpasses/WardenPrevOutpasses";
@@ -30,8 +29,7 @@ const AllRoutes = () => {
             <Route path="/StudentPendingOutpasses" element={<StudentPendingOutpasses/>}/>
             <Route path="/StudentPrevOutpasses" element={<StudentPrevOutpasses/>}/>
             <Route path="/WardenPendingOutpasses" element={<WardenPendingOutpasses/>}/>
-            <Route path="/ApprovedOutpassDetails" element={<ApprovedOutpassDetails/>}/>
-            <Route path="/RejectedOutpassDetails" element={<RejectedOutpassDetails/>}/>
+            <Route path="/PreviousOutpassDetails" element={<PreviousOutpassDetails/>}/>
             <Route path="/PendingOutpassDetails" element={<PendingOutpassDetails/>}/>
             <Route path="/WardenPendingOutpassDetails" element={<WardenPendingOutpassDetails/>}/>
             <Route path="/WardenPrevOutpasses" element={<WardenPrevOutpasses/>}/>
