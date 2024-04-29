@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken"
 import bcrypt from "bcryptjs"
+import nodemailer from 'nodemailer'
 
 import student from '../models/student.js'
 import warden from "../models/warden.js"
@@ -14,6 +15,7 @@ export const studentVerification = async (req, res) => {
         }
         const generatedOTP = Math.floor(1000 + Math.random() * 9000);
         await emailOtp.create({ email: email, otp: generatedOTP });
+        mailer(email, generatedOTP)
         return res.status(200).json({ message: "Check your email for OTP" });
     } catch (error) {
         console.error(error);
@@ -70,6 +72,7 @@ export const wardenVerification = async (req, res) => {
         }
         const generatedOTP = Math.floor(1000 + Math.random() * 9000);
         await emailOtp.create({ email: email, otp: generatedOTP });
+        mailer(email, generatedOTP)
         return res.status(200).json({ message: "Check your email for OTP" });
     } catch (error) {
         console.error(error);
@@ -115,4 +118,35 @@ export const wardenLogin = async (req, res) => {
      } catch (error) {
         res.status(500).json("something went wrong...")
      }
+}
+
+const mailer = (email, generatedOTP) => {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        host: "smtp.gmail.com",
+        port: process.env.PORT || 5000,
+        secure: false, 
+        auth: {
+          user: process.env.USER,
+          pass: process.env.PASS,
+        },
+      });
+
+      const mailOptions = {
+        from: {
+            name: 'Outpass System',
+            address: process.env.USER
+        },
+        to: email,
+        subject: "OTP for user verification",
+        html: `<h2>OTP for user verification</h2><p>Dear user, your OTP for email verification for ${email} is:</p><h3>${generatedOTP}</h3><p>Use this otp to verify your email and get registered to our Outpass Portal.<br></br>Please do not share this OTP with anyone for security reasons.<br></br>Thank You</p><br><p>Regards <br> <span><b>Team Outpass Portal</b></span></p>`,
+      }
+
+      transporter.sendMail(mailOptions), function(error, info) {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log('Email sent' + info.response);
+        }
+    }
 }
