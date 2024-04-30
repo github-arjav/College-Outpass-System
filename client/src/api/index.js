@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL: `http://localhost:5000/`})
+const API = axios.create({baseURL: `https://college-outpass-system.onrender.com/`})
 
 export const studentVerification = (authData) => API.post('./student/verify', authData)
 export const studentLogIn = (authData) => API.post('./student/login', authData)
