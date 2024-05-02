@@ -14,10 +14,10 @@ const WardenPendingOutpassDetails = () => {
     const outpassDetails = useSelector(state => state.outpassMovementReducer.data);
 
     const from = new Date(outpassDetails.fromDate)
-    const fromDate = from.toISOString().split('T')[0];
+    const fromDate = from.toLocaleDateString();
     
     const to = new Date(outpassDetails.toDate)
-    const toDate = to.toISOString().split('T')[0];
+    const toDate = to.toLocaleDateString();
 
     const handleApproved = () => {
         const outpassId = outpassDetails.outpassId

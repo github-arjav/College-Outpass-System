@@ -28,7 +28,7 @@ const StudentPrevOutpasses = () => {
                         [...outpassList].reverse().map((outpass) => (
                             <StudentRejectedOutpass outpass={outpass} key={outpass._id}/>
                         ))
-                    ) : <h1>No pending outpasses found</h1>
+                    ) : <h1>No previous outpasses found</h1>
                 }
             </div>
         </div>

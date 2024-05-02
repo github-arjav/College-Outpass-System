@@ -9,13 +9,13 @@ const PreviousOutpassDetails = () => {
 
     const isApproved = outpassDetails.evaluation
 
-    console.log(outpassDetails);
-
     const from = new Date(outpassDetails.fromDate)
-    const fromDate = from.toISOString().split('T')[0];
+    const fromDate = from.toLocaleDateString();
     
     const to = new Date(outpassDetails.toDate)
-    const toDate = to.toISOString().split('T')[0];
+    const toDate = to.toLocaleDateString();
+
+    console.log(fromDate);
 
   return (
     <div className='details'>
